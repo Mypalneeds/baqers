@@ -447,6 +447,64 @@ header {
 /* ── CATEGORIES ── */
 .categories-section { padding: 70px 0; background: var(--pink-light); }
 .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; margin-top: 40px; }
+
+/* ── PILL SCROLL ROW (homepage) ── */
+.pills-scroll-wrap {
+  position: relative;
+  margin-top: 32px;
+}
+.pills-scroll-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+.pills-scroll-row::-webkit-scrollbar { display: none; }
+.pills-scroll-row .cat-pill {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px;
+  border-radius: 30px;
+  border: 1.5px solid #f0d8e6;
+  background: #fff;
+  color: var(--charcoal);
+  font-size: .84rem; font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pills-scroll-row .cat-pill:hover,
+.pills-scroll-row .cat-pill.active {
+  border-color: var(--pink); color: var(--pink); background: var(--pink-light);
+}
+/* fade-right hint that there's more to scroll */
+.pills-scroll-wrap::after {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 6px; width: 48px;
+  background: linear-gradient(to right, transparent, #fff);
+  pointer-events: none;
+  border-radius: 0 30px 30px 0;
+}
+/* scroll arrow */
+.pills-scroll-arrow {
+  display: none;
+  position: absolute; right: 0; top: 50%; transform: translateY(-60%);
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #fff; border: 1.5px solid #f0d8e6;
+  align-items: center; justify-content: center;
+  cursor: pointer; z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  color: var(--pink);
+  transition: all .2s;
+}
+@media(max-width:767px) {
+  .pills-scroll-arrow { display: flex; }
+}
 .cat-card {
   border-radius: 20px;
   overflow: hidden;
@@ -801,10 +859,15 @@ footer {
   .hero-img-card.card-sm { width: 90px; height: 145px; }
   .hero-float-badge, .hero-float-badge2 { display: none; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .product-card .product-info { padding: 10px 12px 12px; }
-  .product-card h3 { font-size: .88rem; }
-  .product-card .price { font-size: .78rem; }
-  .product-card .btn-view { font-size: .75rem; padding: 7px 12px; }
+  .product-card .product-info { padding: 10px 10px 12px; }
+  .product-card h3 { font-size: .84rem; line-height: 1.25; margin-bottom: 4px; }
+  .product-card .price { font-size: .78rem; display: block; margin-bottom: 8px; }
+  .product-card .btn-view { 
+    font-size: .8rem; padding: 9px 0; 
+    display: block; width: 100%; text-align: center;
+    border-radius: 12px;
+  }
+  .product-card .product-img-wrap { aspect-ratio: 1; }
   .reminder-card { padding: 28px; }
   .reminder-img-wrap { margin-top: 30px; }
   .baker-cta-card { padding: 28px; }
@@ -829,9 +892,137 @@ footer {
 .navbar-toggler:focus { box-shadow: none; }
 .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23e53c81' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
 
+
+/* ── SIGNUP POPUP ── */
+.signup-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .35s;
+}
+.signup-overlay.show { opacity: 1; pointer-events: all; }
+.signup-modal {
+  background: #fff;
+  border-radius: 28px;
+  max-width: 460px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(229,60,129,.22);
+  position: relative;
+  transform: translateY(30px) scale(.97);
+  transition: transform .35s cubic-bezier(.34,1.3,.64,1);
+}
+.signup-overlay.show .signup-modal {
+  transform: translateY(0) scale(1);
+}
+.signup-modal-banner {
+  background: linear-gradient(135deg, #e53c81 0%, #c42e6e 100%);
+  padding: 32px 28px 24px;
+  text-align: center;
+  position: relative;
+}
+.signup-modal-banner::after {
+  content: '🎂';
+  position: absolute; top: 16px; right: 20px;
+  font-size: 2.4rem; opacity: .35;
+}
+.signup-modal-banner h2 {
+  font-family: var(--font-display);
+  font-size: 1.7rem; font-weight: 700; color: #fff;
+  margin-bottom: 6px; line-height: 1.2;
+}
+.signup-modal-banner p { color: rgba(255,255,255,.88); font-size: .9rem; }
+.signup-discount-badge {
+  display: inline-block;
+  background: #fff; color: var(--pink);
+  font-size: 1.15rem; font-weight: 800;
+  padding: 6px 20px; border-radius: 30px;
+  margin-top: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+}
+.signup-modal-body {
+  padding: 28px;
+}
+.signup-modal-body p {
+  text-align: center; font-size: .88rem; color: var(--gray);
+  margin-bottom: 20px;
+}
+.signup-form { display: flex; flex-direction: column; gap: 12px; }
+.signup-input {
+  width: 100%;
+  border: 1.5px solid #e8d8e4;
+  border-radius: 50px;
+  padding: 13px 20px;
+  font-family: var(--font-body);
+  font-size: .9rem; color: var(--charcoal);
+  outline: none;
+  transition: border-color .2s;
+}
+.signup-input:focus { border-color: var(--pink); }
+.signup-input::placeholder { color: #b0a0aa; }
+.signup-submit-btn {
+  background: var(--pink); color: #fff;
+  border: none; border-radius: 50px;
+  padding: 14px; font-size: .95rem; font-weight: 700;
+  cursor: pointer; transition: background .2s, transform .15s;
+  font-family: var(--font-body);
+}
+.signup-submit-btn:hover { background: #c42e6e; transform: scale(1.02); }
+.signup-modal-footer {
+  text-align: center; padding: 0 28px 24px;
+  font-size: .8rem; color: var(--gray);
+}
+.signup-modal-footer a { color: var(--pink); }
+.signup-close {
+  position: absolute; top: 12px; right: 14px;
+  background: rgba(255,255,255,.2); border: none;
+  width: 30px; height: 30px; border-radius: 50%;
+  color: #fff; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.signup-close:hover { background: rgba(255,255,255,.35); }
+.signup-divider {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .78rem; color: var(--gray); margin: 4px 0;
+}
+.signup-divider::before, .signup-divider::after {
+  content: ''; flex: 1; height: 1px; background: #e8d8e4;
+}
 </style>
 </head>
 <body>
+
+<!-- ── SIGNUP POPUP ── -->
+<div class="signup-overlay" id="signupPopup" role="dialog" aria-modal="true" aria-label="Get 10% off your first order">
+  <div class="signup-modal">
+    <div class="signup-modal-banner">
+      <button class="signup-close" id="signupClose" aria-label="Close">×</button>
+      <h2>Sweet Deal Waiting for You!</h2>
+      <p>Sign up & get exclusive offers on fresh cakes delivered to your door.</p>
+      <div class="signup-discount-badge">🎉 10% OFF Your First Order</div>
+    </div>
+    <div class="signup-modal-body">
+      <p>Join thousands of happy cake lovers across the GTA</p>
+      <form class="signup-form" id="popupSignupForm" onsubmit="handlePopupSignup(event)">
+        <input type="text" class="signup-input" placeholder="Your first name" required/>
+        <input type="email" class="signup-input" placeholder="Your email address" required/>
+        <button type="submit" class="signup-submit-btn">
+          <i class="fas fa-gift" style="margin-right:6px;"></i> Claim My 10% Off
+        </button>
+      </form>
+    </div>
+    <div class="signup-modal-footer">
+      No spam, ever. <a href="https://baqers.ca/pages/privacy-policy">Privacy Policy</a> · 
+      <button onclick="closeSignupPopup()" style="background:none;border:none;color:var(--pink);cursor:pointer;font-size:.8rem;">No thanks, I'll pay full price</button>
+    </div>
+  </div>
+</div>
+
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar" id="announcementBar">
@@ -849,7 +1040,7 @@ footer {
           <i class="fas fa-store"></i> Baker Registration
         </a>
         <!-- Logo -->
-        <a href="https://baqers.ca" class="text-decoration-none mx-auto mx-lg-0" aria-label="Baqers">
+        <a href="index.html.html" class="text-decoration-none mx-auto mx-lg-0" aria-label="Baqers">
           <img src="https://baqers.ca/storage/frontend/images/logo//logo.svg" alt="Baqers" width="160" height="70" style="height:50px;width:auto;" loading="eager"/>
         </a>
         <!-- Actions -->
@@ -864,7 +1055,7 @@ footer {
             <i class="fas fa-shopping-bag" style="font-size:1.2rem;"></i>
             <span class="cart-badge">0</span>
           </a>
-          <a href="https://baqers.ca/cakes" class="btn-nav-order" style="text-decoration:none;">Order Now</a>
+          <a href="cakes.html" class="btn-nav-order" style="text-decoration:none;">Order Now</a>
         </div>
       </div>
     </div>
@@ -879,18 +1070,18 @@ footer {
       </div>
       <div class="collapse navbar-collapse d-lg-flex" id="mainNav">
         <ul class="list-unstyled d-flex gap-0 mb-0 flex-column flex-lg-row">
-          <li><a href="https://baqers.ca" class="nav-link active">Home</a></li>
+          <li><a href="index.html.html" class="nav-link active">Home</a></li>
           <li class="nav-dropdown-wrap">
-            <a href="https://baqers.ca/cakes" class="nav-link nav-dropdown-toggle">Cakes <i class="fas fa-chevron-down" style="font-size:.65rem; margin-left:3px;"></i></a>
+            <a href="cakes.html" class="nav-link nav-dropdown-toggle">Cakes <i class="fas fa-chevron-down" style="font-size:.65rem; margin-left:3px;"></i></a>
             <ul class="nav-dropdown-menu">
-              <li><a href="https://baqers.ca/cakes" class="nav-dropdown-item">🎂 All Cakes</a></li>
-              <li><a href="https://baqers.ca/cakes?category_id=9" class="nav-dropdown-item">🎉 Birthday Cakes</a></li>
-              <li><a href="https://baqers.ca/cakes?category_id=7" class="nav-dropdown-item">🥳 Congratulations</a></li>
-              <li><a href="https://baqers.ca/cakes?category_id=5" class="nav-dropdown-item">✨ Extra Special</a></li>
-              <li><a href="https://baqers.ca/cakes?category_id=10" class="nav-dropdown-item">💰 Budget Cakes</a></li>
-              <li><a href="https://baqers.ca/cakes?category_id=6" class="nav-dropdown-item">🌸 Seasonal Cakes</a></li>
-              <li><a href="https://baqers.ca/cakes?category_id=11" class="nav-dropdown-item">⚽ Sports Cakes</a></li>
-              <li><a href="https://baqers.ca/cakes?category_id=8" class="nav-dropdown-item">💗 Thinking of You</a></li>
+              <li><a href="cakes.html" class="nav-dropdown-item">🎂 All Cakes</a></li>
+              <li><a href="cakes.html?category_id=9" class="nav-dropdown-item">🎉 Birthday Cakes</a></li>
+              <li><a href="cakes.html?category_id=7" class="nav-dropdown-item">🥳 Congratulations</a></li>
+              <li><a href="cakes.html?category_id=5" class="nav-dropdown-item">✨ Extra Special</a></li>
+              <li><a href="cakes.html?category_id=10" class="nav-dropdown-item">💰 Budget Cakes</a></li>
+              <li><a href="cakes.html?category_id=6" class="nav-dropdown-item">🌸 Seasonal Cakes</a></li>
+              <li><a href="cakes.html?category_id=11" class="nav-dropdown-item">⚽ Sports Cakes</a></li>
+              <li><a href="cakes.html?category_id=8" class="nav-dropdown-item">💗 Thinking of You</a></li>
             </ul>
           </li>
           <li><a href="https://baqers.ca/findmydelivery" class="nav-link">Track My Order</a></li>
@@ -920,10 +1111,10 @@ footer {
           Freshly baked &amp; decorated to order. Free same-day delivery across Toronto &amp; the GTA. Allow 4–5 hours for delivery. 100% satisfaction guaranteed!
         </p>
         <div class="hero-ctas reveal" style="transition-delay:.24s">
-          <a href="https://baqers.ca/cakes" class="btn-primary-pink" aria-label="Order your cake now">
+          <a href="cakes.html" class="btn-primary-pink" aria-label="Order your cake now">
             <i class="fas fa-birthday-cake"></i> Order Now
           </a>
-          <a href="https://baqers.ca/cakes" class="btn-outline-pink" aria-label="Browse all cakes">
+          <a href="cakes.html" class="btn-outline-pink" aria-label="Browse all cakes">
             Browse Cakes <i class="fas fa-arrow-right" style="font-size:.8rem;"></i>
           </a>
         </div>
@@ -968,7 +1159,7 @@ footer {
     <p style="text-align:center; font-size:.88rem; color:var(--gray); font-weight:500; margin-bottom:14px;">
       <i class="fas fa-search" style="color:var(--pink); margin-right:6px;"></i> Find the perfect cake for any occasion
     </p>
-    <form action="https://baqers.ca/cakes" method="get" id="homepageSearchForm">
+    <form action="cakes.html" method="get" id="homepageSearchForm">
       <div class="search-card">
         <!-- Row 1: search input full width -->
         <div class="search-input-row">
@@ -1051,40 +1242,57 @@ footer {
         <div class="section-label">Browse by Category</div>
         <h2 class="section-title">A Cake for <em>Every</em> Occasion</h2>
       </div>
-      <a href="https://baqers.ca/cakes" class="btn-outline-pink" style="white-space:nowrap;">View All <i class="fas fa-arrow-right" style="font-size:.75rem;"></i></a>
+      <a href="cakes.html" class="btn-outline-pink" style="white-space:nowrap;">View All <i class="fas fa-arrow-right" style="font-size:.75rem;"></i></a>
     </div>
-    <div class="cat-grid reveal">
-      <a href="https://baqers.ca/cakes?category_id=9" class="cat-card" aria-label="Birthday Cakes">
+    <div class="pills-scroll-wrap reveal">
+  <div class="pills-scroll-row" id="catPillsRow">
+    <a href="cakes.html" class="cat-pill active">🎂 All Cakes</a>
+    <a href="cakes.html?category_id=9" class="cat-pill">🎉 Birthday Cakes</a>
+    <a href="cakes.html?category_id=7" class="cat-pill">🥳 Congratulations</a>
+    <a href="cakes.html?category_id=5" class="cat-pill">✨ Extra Special</a>
+    <a href="cakes.html?category_id=10" class="cat-pill">💰 Budget</a>
+    <a href="cakes.html?category_id=6" class="cat-pill">🌸 Seasonal</a>
+    <a href="cakes.html?category_id=11" class="cat-pill">⚽ Sports</a>
+    <a href="cakes.html?category_id=8" class="cat-pill">💝 Thinking of You</a>
+  </div>
+  <button class="pills-scroll-arrow" aria-label="Scroll categories">
+    <i class="fas fa-chevron-right" style="font-size:.75rem;"></i>
+  </button>
+</div>
+
+<!-- Cat Cards Grid (desktop) -->
+<div class="cat-grid reveal" style="margin-top:20px;">
+      <a href="cakes.html?category_id=9" class="cat-card" aria-label="Birthday Cakes">
         <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80&fit=crop" alt="Birthday Cakes Toronto delivery" loading="lazy"/>
         <div class="cat-card-overlay"></div>
         <div class="cat-card-label"><span>Shop Now</span><strong>🎂 Birthday Cakes</strong></div>
       </a>
-      <a href="https://baqers.ca/cakes?category_id=7" class="cat-card" aria-label="Congratulations Cakes">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80&fit=crop" alt="Congratulations cakes same day delivery GTA" loading="lazy"/>
+      <a href="cakes.html?category_id=7" class="cat-card" aria-label="Congratulations Cakes">
+        <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&q=80&fit=crop" alt="Congratulations Cakes" loading="lazy"/>
         <div class="cat-card-overlay"></div>
-        <div class="cat-card-label"><span>Shop Now</span><strong>🎊 Congratulations</strong></div>
+        <div class="cat-card-label"><span>Shop Now</span><strong>🥳 Congratulations</strong></div>
       </a>
-      <a href="https://baqers.ca/cakes?category_id=5" class="cat-card" aria-label="Extra Special Cakes">
-        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80&fit=crop" alt="Extra special custom cakes Toronto" loading="lazy"/>
+      <a href="cakes.html?category_id=5" class="cat-card" aria-label="Extra Special Cakes">
+        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&q=80&fit=crop" alt="Extra Special Cakes" loading="lazy"/>
         <div class="cat-card-overlay"></div>
         <div class="cat-card-label"><span>Shop Now</span><strong>✨ Extra Special</strong></div>
       </a>
-      <a href="https://baqers.ca/cakes?category_id=10" class="cat-card" aria-label="Budget Cakes">
-        <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=400&q=80&fit=crop" alt="Affordable budget cakes Toronto" loading="lazy"/>
+      <a href="cakes.html?category_id=10" class="cat-card" aria-label="Budget Cakes">
+        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80&fit=crop" alt="Budget Cakes" loading="lazy"/>
         <div class="cat-card-overlay"></div>
         <div class="cat-card-label"><span>Shop Now</span><strong>💰 Budget Cakes</strong></div>
       </a>
-      <a href="https://baqers.ca/cakes?category_id=6" class="cat-card" aria-label="Seasonal Cakes">
-        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400&q=80&fit=crop&crop=center" alt="Seasonal cakes GTA delivery" loading="lazy"/>
+      <a href="cakes.html?category_id=6" class="cat-card" aria-label="Seasonal Cakes">
+        <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400&q=80&fit=crop" alt="Seasonal Cakes" loading="lazy"/>
         <div class="cat-card-overlay"></div>
         <div class="cat-card-label"><span>Shop Now</span><strong>🌸 Seasonal Cakes</strong></div>
       </a>
-      <a href="https://baqers.ca/cakes?category_id=8" class="cat-card" aria-label="Thinking of You Cakes">
-        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80&fit=crop" alt="Thinking of you cakes Toronto" loading="lazy"/>
+      <a href="cakes.html?category_id=8" class="cat-card" aria-label="Thinking of You Cakes">
+        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=400&q=80&fit=crop" alt="Thinking of You Cakes" loading="lazy"/>
         <div class="cat-card-overlay"></div>
         <div class="cat-card-label"><span>Shop Now</span><strong>💝 Thinking of You</strong></div>
       </a>
-    </div>
+</div>
   </div>
 </section>
 
@@ -1096,7 +1304,7 @@ footer {
         <div class="section-label">Featured Cakes</div>
         <h2 class="section-title">Our Most <em>Loved</em> Cakes</h2>
       </div>
-      <a href="https://baqers.ca/cakes" class="btn-outline-pink" style="white-space:nowrap;">View All Cakes <i class="fas fa-arrow-right" style="font-size:.75rem;"></i></a>
+      <a href="cakes.html" class="btn-outline-pink" style="white-space:nowrap;">View All Cakes <i class="fas fa-arrow-right" style="font-size:.75rem;"></i></a>
     </div>
     <p class="section-sub mb-4 reveal">Hand-selected by our customers — these are the cakes people keep coming back for.</p>
     <div class="products-grid reveal">
@@ -1104,7 +1312,7 @@ footer {
       <!-- Product 1 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cake/cream-peaks">
+          <a href="cakes-detail.html?slug=cream-peaks">
             <img src="https://images.unsplash.com/photo-1586788224331-947f68671cf1?w=500&q=80&fit=crop" alt="Cream Peaks Cake - Baqers Toronto" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1116,14 +1324,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Cream Peaks</h3>
           <p class="price">Starting from: <strong itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price">$45</span></strong></p>
-          <a href="https://baqers.ca/cake/cream-peaks" class="btn-view" aria-label="View Cream Peaks cake">View Cake</a>
+          <a href="cakes-detail.html?slug=cream-peaks" class="btn-view" aria-label="View Cream Peaks cake">View Cake</a>
         </div>
       </article>
 
       <!-- Product 2 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cake/sweet-sentiment">
+          <a href="cakes-detail.html?slug=sweet-sentiment">
             <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=500&q=80&fit=crop" alt="Sweet Sentiment Cake - Baqers" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1134,14 +1342,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Sweet Sentiment</h3>
           <p class="price">Starting from: <strong>$45</strong></p>
-          <a href="https://baqers.ca/cake/sweet-sentiment" class="btn-view">View Cake</a>
+          <a href="cakes-detail.html?slug=sweet-sentiment" class="btn-view">View Cake</a>
         </div>
       </article>
 
       <!-- Product 3 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cake/buttercream-roses">
+          <a href="cakes-detail.html?slug=buttercream-roses">
             <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=500&q=80&fit=crop" alt="Buttercream Roses Cake - Baqers cake delivery" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1153,14 +1361,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Buttercream Roses</h3>
           <p class="price">Starting from: <strong>$45</strong></p>
-          <a href="https://baqers.ca/cake/buttercream-roses" class="btn-view">View Cake</a>
+          <a href="cakes-detail.html?slug=buttercream-roses" class="btn-view">View Cake</a>
         </div>
       </article>
 
       <!-- Product 4 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cake/cherry-crown">
+          <a href="cakes-detail.html?slug=cherry-crown">
             <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&q=80&fit=crop" alt="Cherry Crown Cake - Baqers GTA" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1171,14 +1379,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Cherry Crown</h3>
           <p class="price">Starting from: <strong>$65</strong></p>
-          <a href="https://baqers.ca/cake/cherry-crown" class="btn-view">View Cake</a>
+          <a href="cakes-detail.html?slug=cherry-crown" class="btn-view">View Cake</a>
         </div>
       </article>
 
       <!-- Product 5 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cake/buttercream-shells">
+          <a href="cakes-detail.html?slug=buttercream-shells">
             <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&q=80&fit=crop" alt="Buttercream Shells Cake - same day delivery Toronto" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1190,14 +1398,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Buttercream Shells</h3>
           <p class="price">Starting from: <strong>$45</strong></p>
-          <a href="https://baqers.ca/cake/buttercream-shells" class="btn-view">View Cake</a>
+          <a href="cakes-detail.html?slug=buttercream-shells" class="btn-view">View Cake</a>
         </div>
       </article>
 
       <!-- Product 6 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cake/creamy-stack">
+          <a href="cakes-detail.html?slug=creamy-stack">
             <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&q=80&fit=crop" alt="Creamy Stack Cake - Baqers" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1208,14 +1416,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Creamy Stack</h3>
           <p class="price">Starting from: <strong>$65</strong></p>
-          <a href="https://baqers.ca/cake/creamy-stack" class="btn-view">View Cake</a>
+          <a href="cakes-detail.html?slug=creamy-stack" class="btn-view">View Cake</a>
         </div>
       </article>
 
       <!-- Product 7 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cakes?category_id=6">
+          <a href="cakes.html?category_id=6">
             <img src="https://images.unsplash.com/photo-1570145820259-b5b80c5c8bd6?w=500&q=80&fit=crop" alt="Floral Dream Cake - Baqers GTA seasonal delivery" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1226,14 +1434,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Floral Dream</h3>
           <p class="price">Starting from: <strong>$55</strong></p>
-          <a href="https://baqers.ca/cakes?category_id=6" class="btn-view">View Cake</a>
+          <a href="cakes.html?category_id=6" class="btn-view">View Cake</a>
         </div>
       </article>
 
       <!-- Product 8 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cakes?category_id=9">
+          <a href="cakes.html?category_id=9">
             <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=500&q=80&fit=crop" alt="Confetti Burst birthday cake - Baqers Toronto" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1245,14 +1453,14 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Confetti Burst</h3>
           <p class="price">Starting from: <strong>$48</strong></p>
-          <a href="https://baqers.ca/cakes?category_id=9" class="btn-view">View Cake</a>
+          <a href="cakes.html?category_id=9" class="btn-view">View Cake</a>
         </div>
       </article>
 
       <!-- Product 9 -->
       <article class="product-card" itemscope itemtype="https://schema.org/Product">
         <div class="product-img-wrap">
-          <a href="https://baqers.ca/cakes?category_id=7">
+          <a href="cakes.html?category_id=7">
             <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80&fit=crop" alt="Golden Celebration congratulations cake - Baqers GTA" loading="lazy" itemprop="image"/>
           </a>
           <div class="delivery-badges">
@@ -1263,13 +1471,13 @@ footer {
         <div class="product-info">
           <h3 itemprop="name">Golden Celebration</h3>
           <p class="price">Starting from: <strong>$79</strong></p>
-          <a href="https://baqers.ca/cakes?category_id=7" class="btn-view">View Cake</a>
+          <a href="cakes.html?category_id=7" class="btn-view">View Cake</a>
         </div>
       </article>
 
     </div>
     <div class="text-center mt-5 reveal">
-      <a href="https://baqers.ca/cakes" class="btn-primary-pink" style="animation:none;">
+      <a href="cakes.html" class="btn-primary-pink" style="animation:none;">
         <i class="fas fa-th-large"></i> View All Cakes
       </a>
     </div>
@@ -1660,10 +1868,10 @@ footer {
       </div>
       <div class="col-6 col-lg-2">
         <div class="footer-col-title">Shop</div>
-        <a href="https://baqers.ca/cakes?category_id=9" class="footer-link">Birthday Cakes</a>
-        <a href="https://baqers.ca/cakes?category_id=7" class="footer-link">Congratulations</a>
-        <a href="https://baqers.ca/cakes?category_id=5" class="footer-link">Extra Special</a>
-        <a href="https://baqers.ca/cakes?category_id=10" class="footer-link">Budget Cakes</a>
+        <a href="cakes.html?category_id=9" class="footer-link">Birthday Cakes</a>
+        <a href="cakes.html?category_id=7" class="footer-link">Congratulations</a>
+        <a href="cakes.html?category_id=5" class="footer-link">Extra Special</a>
+        <a href="cakes.html?category_id=10" class="footer-link">Budget Cakes</a>
       </div>
       <div class="col-6 col-lg-2">
         <div class="footer-col-title">Legal</div>
@@ -1764,6 +1972,71 @@ document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
       wrap.classList.toggle('open');
     }
   });
+});
+</script>
+
+<script>
+// ── SIGNUP POPUP LOGIC ──
+(function() {
+  // Show after 4 seconds if not dismissed before
+  const POPUP_KEY = 'baqers_popup_dismissed';
+  const popup = document.getElementById('signupPopup');
+  if (!popup) return;
+  if (sessionStorage.getItem(POPUP_KEY)) return;
+  
+  setTimeout(() => {
+    popup.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }, 4000);
+  
+  // Close on overlay click
+  popup.addEventListener('click', function(e) {
+    if (e.target === popup) closeSignupPopup();
+  });
+  
+  // Close on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeSignupPopup();
+  });
+})();
+
+function closeSignupPopup() {
+  const popup = document.getElementById('signupPopup');
+  if (!popup) return;
+  popup.classList.remove('show');
+  document.body.style.overflow = '';
+  sessionStorage.setItem('baqers_popup_dismissed', '1');
+}
+
+document.getElementById('signupClose')?.addEventListener('click', closeSignupPopup);
+
+function handlePopupSignup(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.signup-submit-btn');
+  btn.innerHTML = '<i class="fas fa-check" style="margin-right:6px;"></i> You're in! Check your email';
+  btn.style.background = '#22c55e';
+  setTimeout(closeSignupPopup, 2200);
+}
+
+// ── PILLS SCROLL ARROW ──
+document.addEventListener('DOMContentLoaded', function() {
+  const row = document.querySelector('.pills-scroll-row');
+  const arrow = document.querySelector('.pills-scroll-arrow');
+  if (row && arrow) {
+    arrow.addEventListener('click', function() {
+      row.scrollBy({ left: 180, behavior: 'smooth' });
+    });
+    row.addEventListener('scroll', function() {
+      const atEnd = row.scrollLeft + row.clientWidth >= row.scrollWidth - 10;
+      if (atEnd) {
+        arrow.style.opacity = '0.3';
+        arrow.style.pointerEvents = 'none';
+      } else {
+        arrow.style.opacity = '1';
+        arrow.style.pointerEvents = 'all';
+      }
+    });
+  }
 });
 </script>
 </body>

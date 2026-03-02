@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Full Collection | Same-Day Cake Delivery Toronto & GTA – Baqers</title>
+<meta name="description" content="Browse our full collection of freshly baked cakes. Same-day delivery across Toronto & GTA. Birthday, seasonal, congratulations, budget cakes and more."/>
+<meta name="keywords" content="cake delivery Toronto, birthday cake GTA, same-day cake delivery, custom cakes Toronto, order cake online"/>
+<meta property="og:title" content="Cake Collection | Baqers – Same-Day Cake Delivery Toronto"/>
+<meta property="og:description" content="Shop our full range of freshly baked cakes. Free delivery, same-day ordering until 12PM EST."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://baqers.ca/cakes"/>
+<meta property="og:image" content="https://baqers.ca/images/baqers-preview.png"/>
+<link rel="canonical" href="cakes.html"/>
+<link rel="icon" type="image/png" sizes="32x32" href="https://baqers.ca/frontend/images/favicon/favicon-32x32.png"/>
+<meta name="theme-color" content="#FCE9F1"/>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+
+<style>
+:root {
+  --pink: #e53c81;
+  --pink-hover: #c9356f;
+  --pink-light: #fce9f1;
+  --dark: #1a1a1a;
+  --charcoal: #3a3a3a;
+  --gray: #777;
+  --light-gray: #f9f5f7;
+  --border: #ede8ec;
+  --white: #fff;
+  --radius: 18px;
+  --shadow: 0 4px 24px rgba(229,60,129,.1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+
+/* ── ANNOUNCEMENT BAR ── */
+.announce-bar {
+  background: var(--pink);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 500;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+}
+.announce-bar a { color: #fff; text-decoration: underline; }
+.announce-close {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: #fff; cursor: pointer; font-size: 1.1rem; line-height: 1;
+}
+
+/* ── HEADER ── */
+header {
+  background: #fff;
+  position: sticky; top: 0; z-index: 1000;
+  box-shadow: 0 2px 20px rgba(229,60,129,.08);
+}
+.header-top {
+  padding: 14px 0 10px;
+  border-bottom: 1px solid var(--border);
+}
+.header-top .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.baker-link {
+  font-size: .8rem;
+  color: var(--pink);
+  font-weight: 600;
+  display: flex; align-items: center; gap: 6px;
+  white-space: nowrap;
+}
+.baker-link:hover { color: var(--pink-hover); }
+.header-actions {
+  display: flex; align-items: center; gap: 16px;
+}
+.header-actions a {
+  display: flex; align-items: center; gap: 5px;
+  color: var(--charcoal); font-size: .82rem; font-weight: 500;
+  transition: color .2s;
+}
+.header-actions a:hover { color: var(--pink); }
+.cart-icon { position: relative; }
+.cart-badge {
+  position: absolute; top: -8px; right: -10px;
+  background: var(--pink); color: #fff;
+  font-size: .62rem; font-weight: 700;
+  width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.btn-nav-order {
+  background: var(--pink); color: #fff !important;
+  font-size: .8rem; font-weight: 600;
+  padding: 8px 18px; border-radius: 30px;
+  transition: background .2s, transform .15s;
+  white-space: nowrap;
+}
+.btn-nav-order:hover { background: var(--pink-hover) !important; transform: translateY(-1px); }
+
+/* ── NAV ── */
+.main-nav { background: #fff; border-bottom: 1px solid var(--border); }
+.main-nav .nav-link {
+  color: var(--charcoal) !important;
+  font-size: .88rem; font-weight: 500;
+  padding: 12px 16px !important;
+  position: relative;
+  transition: color .2s;
+}
+.main-nav .nav-link::after {
+  content: ''; position: absolute; bottom: 6px; left: 16px; right: 16px;
+  height: 2px; background: var(--pink); transform: scaleX(0);
+  transition: transform .25s;
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active { color: var(--pink) !important; }
+.main-nav .nav-link:hover::after,
+.main-nav .nav-link.active::after { transform: scaleX(1); }
+
+/* Dropdown */
+.nav-dropdown-wrap { position: relative; }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute; top: calc(100% + 2px); left: 0;
+  background: #fff; min-width: 220px;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.12);
+  list-style: none; padding: 8px 0; z-index: 9999;
+  border: 1px solid rgba(229,60,129,.1);
+  animation: dropFade .18s ease;
+}
+@keyframes dropFade { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+.nav-dropdown-wrap:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-item {
+  display: block; padding: 9px 18px;
+  font-size: .85rem; font-weight: 500; color: var(--charcoal);
+  transition: background .15s, color .15s;
+}
+.nav-dropdown-item:hover { background: var(--pink-light); color: var(--pink); }
+.navbar-toggler { border: none; padding: 4px 8px; }
+.navbar-toggler:focus { box-shadow: none; }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23e53c81' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+@media (max-width:991px) {
+  .nav-dropdown-menu {
+    position: static; box-shadow: none; border: none;
+    border-left: 3px solid var(--pink-light);
+    border-radius: 0; margin-left: 12px;
+    padding: 4px 0; animation: none; display: none;
+  }
+  .nav-dropdown-wrap.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-toggle { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+  .baker-link span { display: none; }
+}
+
+/* ── SHOP HEADER ── */
+.shop-header {
+  background: linear-gradient(135deg, #fff9fc 0%, var(--pink-light) 70%);
+  padding: 44px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+.shop-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.shop-header h1 em { font-style: italic; color: var(--pink); }
+.shop-header p { color: var(--gray); font-size: .92rem; margin-bottom: 0; }
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  background: #fff;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 120px; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.04);
+}
+.filter-bar-inner {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.filter-btn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 16px; border-radius: 30px;
+  border: 1.5px solid var(--border);
+  background: #fff; color: var(--charcoal);
+  font-size: .82rem; font-weight: 500; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
+}
+.filter-btn:hover,
+.filter-btn.active { border-color: var(--pink); color: var(--pink); background: var(--pink-light); }
+.filter-btn i { font-size: .75rem; }
+.filter-select {
+  padding: 9px 14px; border-radius: 30px;
+  border: 1.5px solid var(--border);
+  background: #fff; color: var(--charcoal);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem; font-weight: 500; cursor: pointer;
+  outline: none; transition: border-color .2s;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23777' d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat; background-position: right 10px center;
+  background-size: 12px; padding-right: 30px;
+}
+.filter-select:focus { border-color: var(--pink); }
+.filter-toggle-btn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 16px; border-radius: 30px;
+  border: 1.5px solid var(--border);
+  background: #fff; cursor: pointer;
+  font-size: .82rem; font-weight: 500;
+  color: var(--charcoal); transition: all .2s;
+}
+.filter-toggle-btn:hover { border-color: var(--pink); color: var(--pink); background: var(--pink-light); }
+.filter-search {
+  flex: 1; min-width: 180px;
+  position: relative;
+}
+.filter-search input {
+  width: 100%; padding: 9px 14px 9px 36px;
+  border: 1.5px solid var(--border);
+  border-radius: 30px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .82rem; outline: none;
+  transition: border-color .2s;
+}
+.filter-search input:focus { border-color: var(--pink); }
+.filter-search i {
+  position: absolute; left: 12px; top: 50%;
+  transform: translateY(-50%); color: var(--gray); font-size: .85rem;
+}
+.apply-filter-btn {
+  background: var(--pink); color: #fff;
+  padding: 9px 20px; border-radius: 30px;
+  border: none; font-family: 'DM Sans', sans-serif;
+  font-size: .82rem; font-weight: 600; cursor: pointer;
+  transition: background .2s, transform .15s;
+  white-space: nowrap;
+}
+.apply-filter-btn:hover { background: var(--pink-hover); transform: translateY(-1px); }
+.results-count {
+  font-size: .82rem; color: var(--gray);
+  white-space: nowrap; margin-left: auto;
+}
+
+/* ── ACTIVE FILTERS ── */
+.active-filters {
+  display: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+.active-filters.show { display: block; }
+.filter-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--pink-light); color: var(--pink);
+  font-size: .78rem; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px;
+  margin: 3px;
+}
+.filter-tag button {
+  background: none; border: none; cursor: pointer;
+  color: var(--pink); font-size: .8rem; line-height: 1; padding: 0;
+}
+.clear-all-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--gray); font-size: .78rem; font-weight: 500;
+  text-decoration: underline; margin-left: 8px;
+}
+.clear-all-btn:hover { color: var(--pink); }
+
+/* ── SIDEBAR FILTER (DRAWER) ── */
+.filter-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 1040;
+}
+.filter-overlay.show { display: block; }
+.filter-drawer {
+  position: fixed; top: 0; left: 0;
+  width: 320px; max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 1050;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+  padding: 0;
+  box-shadow: 4px 0 24px rgba(0,0,0,.1);
+}
+.filter-drawer.show { transform: translateX(0); }
+.filter-drawer-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: #fff; z-index: 2;
+}
+.filter-drawer-head h3 { font-size: 1rem; font-weight: 700; }
+.drawer-close {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.4rem; color: var(--charcoal); line-height: 1;
+}
+.drawer-section { padding: 18px 20px; border-bottom: 1px solid var(--border); }
+.drawer-section h4 {
+  font-size: .85rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--dark); margin-bottom: 12px;
+}
+.drawer-filter-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0; cursor: pointer;
+  font-size: .88rem; font-weight: 500; color: var(--charcoal);
+  transition: color .15s;
+}
+.drawer-filter-item:hover { color: var(--pink); }
+.drawer-filter-item input[type="checkbox"] { display: none; }
+.drawer-filter-item .check-box {
+  width: 20px; height: 20px; border-radius: 6px;
+  border: 2px solid var(--border); display: flex;
+  align-items: center; justify-content: center; transition: all .15s;
+  flex-shrink: 0;
+}
+.drawer-filter-item.checked .check-box {
+  background: var(--pink); border-color: var(--pink);
+}
+.drawer-filter-item.checked .check-box::after {
+  content: '✓'; color: #fff; font-size: .75rem; font-weight: 700;
+}
+.drawer-filter-item .count-badge {
+  font-size: .75rem; color: var(--gray);
+}
+.drawer-footer {
+  padding: 16px 20px;
+  display: flex; gap: 10px;
+  position: sticky; bottom: 0;
+  background: #fff; border-top: 1px solid var(--border);
+}
+.btn-drawer-clear {
+  flex: 1; padding: 11px;
+  border: 1.5px solid var(--border); border-radius: 12px;
+  background: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem; font-weight: 600; color: var(--charcoal);
+  transition: all .2s;
+}
+.btn-drawer-clear:hover { border-color: var(--pink); color: var(--pink); }
+.btn-drawer-apply {
+  flex: 2; padding: 11px;
+  border: none; border-radius: 12px;
+  background: var(--pink); color: #fff;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem; font-weight: 600;
+  transition: background .2s;
+}
+.btn-drawer-apply:hover { background: var(--pink-hover); }
+
+/* ── MAIN SHOP LAYOUT ── */
+.shop-layout {
+  display: flex;
+  gap: 0;
+}
+
+/* ── PRODUCT GRID ── */
+.shop-main { flex: 1; min-width: 0; }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 28px 0;
+}
+
+/* ── PRODUCT CARD ── */
+.product-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform .25s, box-shadow .25s;
+  cursor: pointer;
+  position: relative;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(229,60,129,.16);
+  border-color: rgba(229,60,129,.3);
+}
+.product-card-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--pink-light);
+}
+.product-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .4s;
+}
+.product-card:hover .product-card-img img { transform: scale(1.06); }
+.delivery-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: #fff; color: var(--dark);
+  font-size: .7rem; font-weight: 600;
+  padding: 4px 10px; border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  display: flex; align-items: center; gap: 4px;
+}
+.delivery-badge.same-day { background: var(--pink); color: #fff; }
+.fav-btn {
+  position: absolute; top: 10px; right: 10px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all .2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.fav-btn:hover { border-color: var(--pink); background: var(--pink-light); }
+.fav-btn i { color: var(--gray); font-size: .9rem; transition: color .2s; }
+.product-card-body { padding: 14px 16px 16px; }
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 600;
+  color: var(--dark); margin-bottom: 8px;
+  line-height: 1.3;
+}
+.product-tags {
+  display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px;
+}
+.product-tag {
+  font-size: .7rem; font-weight: 500;
+  padding: 3px 8px; border-radius: 10px;
+  background: var(--light-gray); color: var(--gray);
+}
+.product-tag.pink { background: var(--pink-light); color: var(--pink); }
+.product-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 10px;
+}
+.product-price {
+  font-size: 1.1rem; font-weight: 700; color: var(--dark);
+}
+.product-price span { font-size: .78rem; color: var(--gray); font-weight: 400; }
+.btn-view {
+  background: var(--pink); color: #fff;
+  font-size: .78rem; font-weight: 600;
+  padding: 7px 14px; border-radius: 20px;
+  border: none; cursor: pointer;
+  transition: background .2s, transform .15s;
+  text-decoration: none; display: inline-block;
+}
+.btn-view:hover { background: var(--pink-hover); transform: translateY(-1px); color: #fff; }
+
+/* ── SKELETON LOADING ── */
+.skeleton {
+  background: linear-gradient(90deg, #f0e8ec 25%, #fce9f1 50%, #f0e8ec 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+@keyframes shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+.skeleton-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.skeleton-img { height: 190px; }
+.skeleton-body { padding: 14px 16px; }
+.skeleton-line { height: 14px; margin-bottom: 10px; }
+.skeleton-line.short { width: 60%; }
+.skeleton-line.tall { height: 20px; }
+
+/* ── NO RESULTS ── */
+.no-results {
+  text-align: center; padding: 60px 20px;
+  display: none;
+}
+.no-results i { font-size: 3rem; color: var(--pink-light); margin-bottom: 16px; display: block; }
+.no-results h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 8px; }
+.no-results p { color: var(--gray); margin-bottom: 20px; }
+.no-results .btn-view { padding: 10px 24px; font-size: .88rem; }
+
+/* ── CATEGORY PILLS ── */
+.category-pills {
+  padding: 18px 0 8px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  position: relative;
+}
+.category-pills::-webkit-scrollbar { display: none; }
+.pills-row {
+  display: flex; gap: 8px;
+  padding: 0 0 6px;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+.pills-row::-webkit-scrollbar { display: none; }
+/* fade-right hint */
+.category-pills::after {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 8px; width: 56px;
+  background: linear-gradient(to right, transparent, #fff);
+  pointer-events: none;
+  z-index: 2;
+}
+/* scroll arrow visible on mobile */
+.pills-scroll-hint {
+  display: none;
+  position: absolute; right: 4px; top: 50%; transform: translateY(-65%);
+  width: 34px; height: 34px; border-radius: 50%;
+  background: #fff; border: 1.5px solid var(--border);
+  align-items: center; justify-content: center;
+  cursor: pointer; z-index: 3;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  color: var(--pink); font-size: .8rem;
+  transition: all .2s;
+}
+@media(max-width:767px) {
+  .pills-scroll-hint { display: flex; }
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 16px; border-radius: 30px;
+  border: 1.5px solid var(--border);
+  background: #fff; color: var(--charcoal);
+  font-size: .82rem; font-weight: 500; cursor: pointer;
+  transition: all .2s; white-space: nowrap;
+  text-decoration: none;
+}
+.pill:hover,
+.pill.active { border-color: var(--pink); color: var(--pink); background: var(--pink-light); }
+
+/* ── LOAD MORE ── */
+.load-more-wrap { text-align: center; padding: 10px 0 40px; }
+.btn-load-more {
+  background: none; border: 2px solid var(--border);
+  color: var(--charcoal);
+  padding: 12px 36px; border-radius: 30px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem; font-weight: 600; cursor: pointer;
+  transition: all .2s;
+}
+.btn-load-more:hover { border-color: var(--pink); color: var(--pink); background: var(--pink-light); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  color: #fff;
+  padding: 50px 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 32px;
+  padding-bottom: 40px;
+}
+.footer-logo { margin-bottom: 16px; }
+.footer-logo img { height: 46px; width: auto; filter: brightness(10); }
+.footer-corp { font-size: .78rem; color: rgba(255,255,255,.5); margin-bottom: 12px; }
+.footer-col h4 {
+  font-size: .8rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: rgba(255,255,255,.6);
+  margin-bottom: 14px;
+}
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a {
+  font-size: .85rem; color: rgba(255,255,255,.75);
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--pink); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 18px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p,
+.footer-bottom a { font-size: .8rem; color: rgba(255,255,255,.5); }
+.footer-bottom a:hover { color: var(--pink); }
+.payment-logos { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.payment-logos img { height: 26px; width: auto; filter: brightness(0) invert(1); opacity: .6; }
+.social-links { display: flex; gap: 12px; }
+.social-link {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.7); font-size: .85rem;
+  transition: background .2s, color .2s;
+}
+.social-link:hover { background: var(--pink); color: #fff; }
+
+/* ── BACK TO TOP ── */
+.back-to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--pink); color: #fff;
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 16px rgba(229,60,129,.4);
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .3s;
+  z-index: 900;
+}
+.back-to-top.visible { opacity: 1; pointer-events: auto; }
+.back-to-top:hover { transform: translateY(-3px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 991px) {
+  .filter-bar { top: 103px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .baker-link span { display: none; }
+}
+@media (max-width: 767px) {
+  .filter-bar { top: 95px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-card-body { padding: 10px 10px 12px; }
+  .product-name { font-size: .84rem; line-height: 1.25; margin-bottom: 4px; }
+  .product-price { font-size: .92rem; }
+  .product-footer { flex-direction: column; align-items: stretch; gap: 8px; }
+  .btn-view { text-align: center; padding: 9px 0; border-radius: 12px; font-size: .8rem; }
+  .results-count { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .product-card-img { aspect-ratio: 1; }
+  .shop-header { padding: 28px 0 20px; }
+  .category-pills { padding: 12px 0 4px; }
+}
+@media (max-width: 380px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar" id="announceBar">
+  <i class="fas fa-clock" style="font-size:.9rem;"></i>
+  Same-day ordering only available until <strong>12PM EST</strong> — 
+  <a href="cakes.html">Order now</a>
+  <button class="announce-close" onclick="document.getElementById('announceBar').remove()" aria-label="Close">×</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <div class="container">
+      <a href="https://baqers.ca/vendor/signup" class="baker-link d-none d-sm-flex" aria-label="Baker Registration">
+        <svg width="20" height="20" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.5303 8.17871C18.5303 4.83398 15.8204 2.12402 12.4756 2.12402C9.13091 2.12402 6.42095 4.83398 6.42095 8.17871C6.42095 10.2002 7.41216 11.9922 8.9356 13.0908C8.92583 13.0957 8.91851 13.0981 8.91362 13.1006C7.82232 13.562 6.84331 14.2236 6.00103 15.0684C5.15874 15.9106 4.49956 16.8921 4.03814 17.9858C3.58648 19.0552 3.34478 20.1904 3.32036 21.3574C3.31792 21.4673 3.40581 21.5576 3.51567 21.5576H4.97808C5.08306 21.5576 5.17095 21.4722 5.17339 21.3672C5.22222 19.4824 5.97661 17.7173 7.31206 16.3794C8.69146 14.9951 10.5225 14.2334 12.4756 14.2334C15.8204 14.2334 18.5303 11.5234 18.5303 8.17871ZM12.4756 12.3779C10.1563 12.3779 8.27642 10.498 8.27642 8.17871C8.27642 5.85938 10.1563 3.97949 12.4756 3.97949C14.795 3.97949 16.6749 5.85938 16.6749 8.17871C16.6749 10.498 14.795 12.3779 12.4756 12.3779Z" fill="#E53C81"/>
+          <path d="M15.0391 17.7734H21.4844C21.5918 17.7734 21.6797 17.6855 21.6797 17.5781V16.2109C21.6797 16.1035 21.5918 16.0156 21.4844 16.0156H17.1753L18.3277 14.5483C18.3545 14.5142 18.3692 14.4702 18.3692 14.4287C18.3692 14.3213 18.2813 14.2334 18.1739 14.2334H16.4014C16.2818 14.2334 16.1695 14.2895 16.0938 14.3823L14.4214 16.5088C14.314 16.6455 14.2554 16.8164 14.2554 16.9922C14.2579 17.4243 14.607 17.7734 15.0391 17.7734Z" fill="#E53C81"/>
+          <path d="M20.8985 19.3359H14.4532C14.3458 19.3359 14.2579 19.4238 14.2579 19.5312V20.8984C14.2579 21.0059 14.3458 21.0938 14.4532 21.0938H18.7623L17.6099 22.561C17.5831 22.5952 17.5684 22.6392 17.5684 22.6807C17.5684 22.7881 17.6563 22.876 17.7637 22.876H19.5362C19.6558 22.876 19.7681 22.8198 19.8438 22.7271L21.5162 20.6006C21.6236 20.4639 21.6822 20.293 21.6822 20.1172C21.6797 19.6851 21.3306 19.3359 20.8985 19.3359Z" fill="#E53C81"/>
+        </svg>
+        <span>Baker Registration</span>
+      </a>
+
+      <!-- Logo -->
+      <a href="https://baqers.ca" class="text-decoration-none mx-auto mx-sm-0" aria-label="Baqers">
+        <img src="https://baqers.ca/storage/frontend/images/logo//logo.svg" alt="Baqers" width="160" height="70" style="height:48px;width:auto;" loading="eager"/>
+      </a>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <a href="#" class="d-none d-md-flex" style="color:var(--charcoal);" aria-label="Login">
+          <i class="fas fa-user" style="font-size:1.1rem;"></i>
+        </a>
+        <a href="https://baqers.ca/favorites-list" aria-label="Favourites" class="d-none d-md-flex" style="color:var(--charcoal);">
+          <i class="far fa-heart" style="font-size:1.1rem;"></i>
+        </a>
+        <a href="#" class="cart-icon" aria-label="Cart" style="color:var(--charcoal);">
+          <i class="fas fa-shopping-bag" style="font-size:1.1rem;"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="cakes.html" class="btn-nav-order d-none d-sm-inline-block">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="main-nav">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between d-lg-none py-1">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse d-lg-flex" id="mainNav">
+        <ul class="list-unstyled d-flex gap-0 mb-0 flex-column flex-lg-row">
+          <li><a href="index.html.html" class="nav-link">Home</a></li>
+          <li class="nav-dropdown-wrap">
+            <a href="cakes.html" class="nav-link nav-dropdown-toggle active">Cakes <i class="fas fa-chevron-down" style="font-size:.65rem;margin-left:3px;"></i></a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="cakes.html" class="nav-dropdown-item">🎂 All Cakes</a></li>
+              <li><a href="cakes.html?category_id=9" class="nav-dropdown-item">🎉 Birthday Cakes</a></li>
+              <li><a href="cakes.html?category_id=7" class="nav-dropdown-item">🥳 Congratulations</a></li>
+              <li><a href="cakes.html?category_id=5" class="nav-dropdown-item">✨ Extra Special</a></li>
+              <li><a href="cakes.html?category_id=10" class="nav-dropdown-item">💰 Budget Cakes</a></li>
+              <li><a href="cakes.html?category_id=6" class="nav-dropdown-item">🌸 Seasonal Cakes</a></li>
+              <li><a href="cakes.html?category_id=11" class="nav-dropdown-item">⚽ Sports Cakes</a></li>
+              <li><a href="cakes.html?category_id=8" class="nav-dropdown-item">💗 Thinking of You</a></li>
+            </ul>
+          </li>
+          <li><a href="https://baqers.ca/findmydelivery" class="nav-link">Track My Order</a></li>
+          <li><a href="#" class="nav-link">Reminders &amp; Occasions</a></li>
+          <li><a href="https://baqers.ca/information" class="nav-link">Information</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- SHOP HEADER -->
+<div class="shop-header">
+  <div class="container">
+    <h1>Our Full <em>Collection</em></h1>
+    <p>Freshly baked, same-day delivery across Toronto &amp; the GTA</p>
+  </div>
+</div>
+
+<!-- CATEGORY PILLS -->
+<div class="category-pills" id="categoryPills">
+  <div class="container" style="position:relative;">
+    <div class="pills-row" id="pillsScrollRow">
+      <a href="#" class="pill active" data-cat="">🎂 All Cakes</a>
+      <a href="#" class="pill" data-cat="9">🎉 Birthday Cakes</a>
+      <a href="#" class="pill" data-cat="7">🥳 Congratulations</a>
+      <a href="#" class="pill" data-cat="5">✨ Extra Special</a>
+      <a href="#" class="pill" data-cat="10">💰 Budget Cakes</a>
+      <a href="#" class="pill" data-cat="6">🌸 Seasonal Cakes</a>
+      <a href="#" class="pill" data-cat="11">⚽ Sports Cakes</a>
+      <a href="#" class="pill" data-cat="8">💗 Thinking of You</a>
+    </div>
+    <button class="pills-scroll-hint" id="pillsScrollHint" aria-label="Scroll to see more">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-bar-inner">
+      <!-- Toggle filters drawer -->
+      <button class="filter-toggle-btn" id="filterToggleBtn" aria-label="Filters">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 15 14" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M5.1583 2.53392C5.1583 3.93392 4.00414 5.06866 2.57915 5.06866C1.15499 5.06866 0 3.93392 0 2.53392C0 1.13474 1.15499 0 2.57915 0C4.00414 0 5.1583 1.13474 5.1583 2.53392ZM13.87 1.42374C14.4933 1.42374 15 1.92152 15 2.53392C15 3.14714 14.4933 3.64491 13.87 3.64491H8.93836C8.3142 3.64491 7.80754 3.14714 7.80754 2.53392C7.80754 1.92152 8.3142 1.42374 8.93836 1.42374H13.87ZM1.13083 9.71847H6.06247C6.68663 9.71847 7.19329 10.2162 7.19329 10.8295C7.19329 11.4419 6.68663 11.9405 6.06247 11.9405H1.13083C0.506664 11.9405 0 11.4419 0 10.8295C0 10.2162 0.506664 9.71847 1.13083 9.71847ZM12.4208 13.3333C13.8458 13.3333 15 12.1986 15 10.7994C15 9.39941 13.8458 8.26468 12.4208 8.26468C10.9967 8.26468 9.8417 9.39941 9.8417 10.7994C9.8417 12.1986 10.9967 13.3333 12.4208 13.3333Z" fill="currentColor"/>
+        </svg>
+        Filters
+      </button>
+
+      <!-- Occasion quick-select -->
+      <div class="d-none d-md-block">
+        <select class="filter-select" id="occasionSelect" aria-label="Filter by occasion">
+          <option value="">🎂 Occasion</option>
+          <option value="9">🎉 Birthday Cakes</option>
+          <option value="10">💰 Budget Cakes</option>
+          <option value="5">✨ Extra Special Cakes</option>
+          <option value="7">🥳 Congratulations</option>
+          <option value="6">🌸 Seasonal Cakes</option>
+          <option value="11">⚽ Sports Cakes</option>
+          <option value="8">💗 Thinking of You</option>
+        </select>
+      </div>
+
+      <!-- Delivery quick-select -->
+      <div class="d-none d-md-block">
+        <select class="filter-select" id="deliverySelect" aria-label="Filter by delivery">
+          <option value="">📅 Delivery</option>
+          <option value="0">All</option>
+          <option value="2">Next Day Delivery</option>
+          <option value="1">Standard Delivery</option>
+        </select>
+      </div>
+
+      <!-- Sort -->
+      <select class="filter-select" id="sortSelect" aria-label="Sort products">
+        <option value="price_low">↑ Price: Low to High</option>
+        <option value="price_high">↓ Price: High to Low</option>
+        <option value="recent">🕐 Recent</option>
+      </select>
+
+      <!-- Search -->
+      <div class="filter-search d-none d-lg-block">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search cakes..." aria-label="Search cakes"/>
+      </div>
+
+      <button class="apply-filter-btn d-none d-md-block" id="applyFiltersBtn">
+        View Products
+      </button>
+
+      <span class="results-count" id="resultsCount">Showing 37 cakes</span>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVE FILTER TAGS -->
+<div class="active-filters" id="activeFilters">
+  <div class="container">
+    <div id="filterTagsRow" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+      <!-- tags injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- FILTER DRAWER OVERLAY -->
+<div class="filter-overlay" id="filterOverlay"></div>
+
+<!-- FILTER DRAWER -->
+<aside class="filter-drawer" id="filterDrawer" aria-label="Filters">
+  <div class="filter-drawer-head">
+    <h3><i class="fas fa-sliders-h" style="color:var(--pink);margin-right:8px;"></i>Filters</h3>
+    <button class="drawer-close" id="drawerClose" aria-label="Close filters">×</button>
+  </div>
+
+  <!-- Search in drawer (mobile) -->
+  <div class="drawer-section d-lg-none">
+    <div class="filter-search">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInputMobile" placeholder="Search cakes..." aria-label="Search" style="width:100%;"/>
+    </div>
+  </div>
+
+  <!-- Delivery -->
+  <div class="drawer-section">
+    <h4>Delivery</h4>
+    <label class="drawer-filter-item" data-type="delivery" data-val="2">
+      <span>
+        <i class="fas fa-calendar-day" style="color:var(--pink);margin-right:6px;"></i>
+        Next Day Delivery
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;">
+        <span class="count-badge">37</span>
+        <span class="check-box"></span>
+      </span>
+    </label>
+    <label class="drawer-filter-item" data-type="delivery" data-val="1">
+      <span>
+        <i class="fas fa-calendar-check" style="color:var(--pink);margin-right:6px;"></i>
+        Standard Delivery
+      </span>
+      <span style="display:flex;align-items:center;gap:8px;">
+        <span class="count-badge">37</span>
+        <span class="check-box"></span>
+      </span>
+    </label>
+  </div>
+
+  <!-- Layers -->
+  <div class="drawer-section">
+    <h4>Layers</h4>
+    <label class="drawer-filter-item" data-type="layer" data-val="1">
+      <span>Single Layer</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">20</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="layer" data-val="2">
+      <span>Double Layer</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">10</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="layer" data-val="3">
+      <span>Triple Layer</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">7</span><span class="check-box"></span></span>
+    </label>
+  </div>
+
+  <!-- Occasions -->
+  <div class="drawer-section">
+    <h4>Occasions</h4>
+    <label class="drawer-filter-item" data-type="category" data-val="10">
+      <span>💰 Budget Cakes</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">11</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="category" data-val="9">
+      <span>🎉 Happy Birthday</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">33</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="category" data-val="6">
+      <span>🌸 Seasonal Cakes</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">32</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="category" data-val="5">
+      <span>✨ Extra Special</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">29</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="category" data-val="7">
+      <span>🥳 Congratulations</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">25</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="category" data-val="11">
+      <span>⚽ Sports Cakes</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">4</span><span class="check-box"></span></span>
+    </label>
+    <label class="drawer-filter-item" data-type="category" data-val="8">
+      <span>💗 Thinking of You</span>
+      <span style="display:flex;align-items:center;gap:8px;"><span class="count-badge">33</span><span class="check-box"></span></span>
+    </label>
+  </div>
+
+  <div class="drawer-footer">
+    <button class="btn-drawer-clear" id="drawerClear">Clear All</button>
+    <button class="btn-drawer-apply" id="drawerApply">Apply Filters</button>
+  </div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main>
+  <div class="container">
+    <div class="shop-layout">
+      <div class="shop-main">
+
+        <!-- SKELETON (initial loading state) -->
+        <div class="products-grid" id="skeletonGrid">
+          <!-- 12 skeleton cards -->
+          <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line tall mb-2"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line tall mb-2"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line tall mb-2"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line tall mb-2"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line tall mb-2"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton skeleton-img"></div><div class="skeleton-body"><div class="skeleton skeleton-line tall mb-2"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line short"></div></div></div>
+        </div>
+
+        <!-- ACTUAL PRODUCTS GRID -->
+        <div class="products-grid" id="productsGrid" style="display:none;"></div>
+
+        <!-- NO RESULTS -->
+        <div class="no-results" id="noResults">
+          <i class="fas fa-birthday-cake"></i>
+          <h3>No cakes found</h3>
+          <p>Try adjusting your filters or browsing our full collection.</p>
+          <a href="#" class="btn-view" onclick="clearAllFilters();return false;">View All Cakes</a>
+        </div>
+
+        <!-- LOAD MORE -->
+        <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+          <button class="btn-load-more" id="loadMoreBtn">
+            <i class="fas fa-plus-circle" style="margin-right:6px;"></i> Load More Cakes
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <a href="https://baqers.ca" aria-label="Baqers">
+            <img src="https://baqers.ca/storage/frontend/images/logo//logo.svg" alt="Baqers" width="180" height="90" loading="lazy"/>
+          </a>
+        </div>
+        <p class="footer-corp">Corporation No: 1001315556</p>
+        <div class="social-links mt-3">
+          <a href="https://www.instagram.com/baqers.ca" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://facebook.com/share/1DhUwSu5Yp/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/company/baqers" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="https://baqers.ca/our-story">Our Story</a></li>
+          <li><a href="https://baqers.ca/blog-list">Our Blogs</a></li>
+          <li><a href="https://baqers.ca/vendor/signup">Register as a Baker</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="https://baqers.ca/information">FAQ</a></li>
+          <li><a href="https://baqers.ca/findmydelivery">Track My Order</a></li>
+          <li><a href="https://baqers.ca/refund-policy">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="cakes.html">All Cakes</a></li>
+          <li><a href="cakes.html?category_id=9">Birthday Cakes</a></li>
+          <li><a href="cakes.html?category_id=10">Budget Cakes</a></li>
+          <li><a href="cakes.html?category_id=6">Seasonal Cakes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="https://baqers.ca/pages/privacy-policy">Privacy Policy</a></li>
+          <li><a href="https://baqers.ca/pages/terms-conditions">Terms &amp; Conditions</a></li>
+          <li><a href="https://baqers.ca/data-protection-policy">Data Protection</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Baqers. All rights reserved.</p>
+      <div class="payment-logos">
+        <img src="https://baqers.ca/assets/media/logos/visa.svg" alt="Visa" width="50" height="32" loading="lazy"/>
+        <img src="https://baqers.ca/assets/media/logos/ma-card.svg" alt="Mastercard" width="50" height="32" loading="lazy"/>
+        <img src="https://baqers.ca/assets/media/logos/amex.svg" alt="American Express" width="50" height="32" loading="lazy"/>
+        <img src="https://baqers.ca/assets/media/logos/g-pay.svg" alt="Google Pay" width="50" height="32" loading="lazy"/>
+        <img src="https://baqers.ca/assets/media/logos/apple-pay.svg" alt="Apple Pay" width="50" height="32" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ── PRODUCT DATA (representative sample) ──
+const PRODUCTS = [
+  { id:1, slug:'cream-peaks', name:'Cream Peaks', price:49.99, category:9, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1586788224331-947f68671cf1?w=500&q=80&fit=crop', tags:['Birthday','Same Day'], occasion:'🎉 Birthday' },
+  { id:2, slug:'sweet-sentiment', name:'Sweet Sentiment', price:54.99, category:8, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=500&q=80&fit=crop', tags:['Thinking of You','Free Delivery'], occasion:'💗 Thinking of You' },
+  { id:3, slug:'buttercream-roses', name:'Buttercream Roses', price:64.99, category:5, delivery:1, layers:2, img:'https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=500&q=80&fit=crop', tags:['Extra Special','Free Delivery'], occasion:'✨ Extra Special' },
+  { id:4, slug:'cherry-crown', name:'Cherry Crown', price:44.99, category:9, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&q=80&fit=crop', tags:['Birthday','Same Day'], occasion:'🎉 Birthday' },
+  { id:5, slug:'buttercream-shells', name:'Buttercream Shells', price:59.99, category:5, delivery:2, layers:2, img:'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&q=80&fit=crop', tags:['Extra Special','Same Day'], occasion:'✨ Extra Special' },
+  { id:6, slug:'creamy-stack', name:'Creamy Stack', price:39.99, category:10, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=500&q=80&fit=crop', tags:['Budget','Same Day'], occasion:'💰 Budget' },
+  { id:7, slug:'floral-dream', name:'Floral Dream', price:74.99, category:6, delivery:1, layers:3, img:'https://images.unsplash.com/photo-1570145820259-b5b80c5c8bd6?w=500&q=80&fit=crop', tags:['Seasonal','Triple Layer'], occasion:'🌸 Seasonal' },
+  { id:8, slug:'confetti-burst', name:'Confetti Burst', price:47.99, category:9, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?w=500&q=80&fit=crop', tags:['Birthday','Same Day'], occasion:'🎉 Birthday' },
+  { id:9, slug:'golden-celebration', name:'Golden Celebration', price:79.99, category:7, delivery:1, layers:2, img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&q=80&fit=crop', tags:['Congratulations','Free Delivery'], occasion:'🥳 Congratulations' },
+  { id:10, slug:'velvet-delight', name:'Velvet Delight', price:34.99, category:10, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500&q=80&fit=crop&crop=center', tags:['Budget','Same Day'], occasion:'💰 Budget' },
+  { id:11, slug:'sports-glory', name:'Sports Glory', price:64.99, category:11, delivery:1, layers:2, img:'https://images.unsplash.com/photo-1511381939415-e44f1e8d26f1?w=500&q=80&fit=crop', tags:['Sports','Free Delivery'], occasion:'⚽ Sports' },
+  { id:12, slug:'spring-blossom', name:'Spring Blossom', price:55.99, category:6, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?w=500&q=80&fit=crop', tags:['Seasonal','Same Day'], occasion:'🌸 Seasonal' },
+  { id:13, slug:'midnight-velvet', name:'Midnight Velvet', price:68.99, category:5, delivery:1, layers:3, img:'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=500&q=80&fit=crop', tags:['Extra Special','Triple Layer'], occasion:'✨ Extra Special' },
+  { id:14, slug:'peach-perfection', name:'Peach Perfection', price:48.99, category:8, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&q=80&fit=crop', tags:['Thinking of You','Same Day'], occasion:'💗 Thinking of You' },
+  { id:15, slug:'party-popper', name:'Party Popper', price:44.99, category:7, delivery:2, layers:2, img:'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=500&q=80&fit=crop', tags:['Congratulations','Same Day'], occasion:'🥳 Congratulations' },
+  { id:16, slug:'budget-bliss', name:'Budget Bliss', price:29.99, category:10, delivery:2, layers:1, img:'https://images.unsplash.com/photo-1593351415075-3bac9f45c877?w=500&q=80&fit=crop', tags:['Budget','Same Day'], occasion:'💰 Budget' },
+  { id:17, slug:'rainbow-joy', name:'Rainbow Joy', price:52.99, category:9, delivery:2, layers:2, img:'https://images.unsplash.com/photo-1561702038-168c7e4db3ab?w=500&q=80&fit=crop', tags:['Birthday','Same Day'], occasion:'🎉 Birthday' },
+  { id:18, slug:'autumn-harvest', name:'Autumn Harvest', price:58.99, category:6, delivery:1, layers:2, img:'https://images.unsplash.com/photo-1606188074044-6e0e5f2eae74?w=500&q=80&fit=crop', tags:['Seasonal','Free Delivery'], occasion:'🌸 Seasonal' },
+];
+
+let activeFilters = { category: '', delivery: '', layer: '', search: '', sort: 'price_low' };
+let visibleCount = 12;
+let filteredProducts = [...PRODUCTS];
+let favourites = new Set();
+
+// ── RENDER PRODUCTS ──
+function renderProducts(products, append = false) {
+  const grid = document.getElementById('productsGrid');
+  const noRes = document.getElementById('noResults');
+  const loadWrap = document.getElementById('loadMoreWrap');
+
+  if (!append) grid.innerHTML = '';
+
+  const slice = products.slice(append ? visibleCount - 6 : 0, visibleCount);
+  if (slice.length === 0 && !append) {
+    noRes.style.display = 'block';
+    grid.style.display = 'none';
+    loadWrap.style.display = 'none';
+    document.getElementById('resultsCount').textContent = 'No cakes found';
+    return;
+  }
+
+  noRes.style.display = 'none';
+  grid.style.display = 'grid';
+
+  slice.forEach(p => {
+    const isSameDay = p.delivery === 2;
+    const isFav = favourites.has(p.id);
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.setAttribute('itemscope', '');
+    card.setAttribute('itemtype', 'https://schema.org/Product');
+    card.innerHTML = `
+      <div class="product-card-img">
+        <img src="${p.img}" alt="${p.name} – Baqers Toronto" loading="lazy" itemprop="image"/>
+        <div class="delivery-badge ${isSameDay ? 'same-day' : ''}">
+          <i class="fas ${isSameDay ? 'fa-bolt' : 'fa-calendar-check'}" style="font-size:.65rem;"></i>
+          ${isSameDay ? 'Same Day' : 'Next Day'}
+        </div>
+        <button class="fav-btn" data-id="${p.id}" aria-label="Favourite">
+          <i class="${isFav ? 'fas' : 'far'} fa-heart" style="${isFav ? 'color:var(--pink);' : ''}"></i>
+        </button>
+      </div>
+      <div class="product-card-body">
+        <h3 class="product-name" itemprop="name">${p.name}</h3>
+        <div class="product-tags">
+          <span class="product-tag pink">${p.occasion}</span>
+          ${p.layers > 1 ? `<span class="product-tag">${p.layers === 2 ? 'Double' : 'Triple'} Layer</span>` : ''}
+        </div>
+        <div class="product-footer">
+          <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <span itemprop="priceCurrency" content="CAD">$</span><span itemprop="price">${p.price.toFixed(2)}</span>
+            <span>CAD</span>
+          </div>
+          <a href="cakes-detail.html?slug=${p.slug}" class="btn-view" itemprop="url">View Cake</a>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Attach fav listeners
+  grid.querySelectorAll('.fav-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      const id = parseInt(this.dataset.id);
+      const icon = this.querySelector('i');
+      if (favourites.has(id)) {
+        favourites.delete(id);
+        icon.className = 'far fa-heart';
+        icon.style.color = '';
+      } else {
+        favourites.add(id);
+        icon.className = 'fas fa-heart';
+        icon.style.color = 'var(--pink)';
+      }
+    });
+  });
+
+  loadWrap.style.display = visibleCount < products.length ? 'block' : 'none';
+  document.getElementById('resultsCount').textContent = `Showing ${Math.min(visibleCount, products.length)} of ${products.length} cakes`;
+}
+
+// ── FILTER + SORT LOGIC ──
+function applyFilters() {
+  let results = [...PRODUCTS];
+  if (activeFilters.category) results = results.filter(p => p.category === parseInt(activeFilters.category));
+  if (activeFilters.delivery) results = results.filter(p => p.delivery === parseInt(activeFilters.delivery));
+  if (activeFilters.layer) results = results.filter(p => p.layers === parseInt(activeFilters.layer));
+  if (activeFilters.search) {
+    const q = activeFilters.search.toLowerCase();
+    results = results.filter(p => p.name.toLowerCase().includes(q) || p.occasion.toLowerCase().includes(q));
+  }
+  if (activeFilters.sort === 'price_low') results.sort((a,b) => a.price - b.price);
+  else if (activeFilters.sort === 'price_high') results.sort((a,b) => b.price - a.price);
+  else results.sort((a,b) => b.id - a.id);
+  filteredProducts = results;
+  visibleCount = 12;
+  renderProducts(filteredProducts);
+  updateFilterTags();
+}
+
+function clearAllFilters() {
+  activeFilters = { category: '', delivery: '', layer: '', search: '', sort: 'price_low' };
+  document.getElementById('occasionSelect').value = '';
+  document.getElementById('deliverySelect').value = '';
+  document.getElementById('sortSelect').value = 'price_low';
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchInputMobile').value = '';
+  document.querySelectorAll('.drawer-filter-item').forEach(i => i.classList.remove('checked'));
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  document.querySelector('.pill[data-cat=""]').classList.add('active');
+  applyFilters();
+}
+
+// ── FILTER TAGS ──
+function updateFilterTags() {
+  const row = document.getElementById('filterTagsRow');
+  const container = document.getElementById('activeFilters');
+  row.innerHTML = '';
+  const cats = {9:'Birthday',10:'Budget',5:'Extra Special',7:'Congratulations',6:'Seasonal',11:'Sports',8:'Thinking of You'};
+  const dels = {1:'Standard Delivery',2:'Next Day Delivery'};
+  const layerNames = {1:'Single Layer',2:'Double Layer',3:'Triple Layer'};
+  let any = false;
+  if (activeFilters.category) {
+    any = true;
+    addTag(row, cats[activeFilters.category] || 'Category', () => { activeFilters.category=''; applyFilters(); });
+  }
+  if (activeFilters.delivery) {
+    any = true;
+    addTag(row, dels[activeFilters.delivery] || 'Delivery', () => { activeFilters.delivery=''; applyFilters(); });
+  }
+  if (activeFilters.layer) {
+    any = true;
+    addTag(row, layerNames[activeFilters.layer] || 'Layer', () => { activeFilters.layer=''; applyFilters(); });
+  }
+  if (activeFilters.search) {
+    any = true;
+    addTag(row, `"${activeFilters.search}"`, () => { activeFilters.search=''; document.getElementById('searchInput').value=''; applyFilters(); });
+  }
+  if (any) {
+    container.classList.add('show');
+    const clr = document.createElement('button');
+    clr.className = 'clear-all-btn';
+    clr.textContent = 'Clear All';
+    clr.onclick = clearAllFilters;
+    row.appendChild(clr);
+  } else {
+    container.classList.remove('show');
+  }
+}
+function addTag(row, label, onRemove) {
+  const tag = document.createElement('span');
+  tag.className = 'filter-tag';
+  tag.innerHTML = `${label} <button aria-label="Remove filter">×</button>`;
+  tag.querySelector('button').onclick = onRemove;
+  row.appendChild(tag);
+}
+
+// ── FILTER DRAWER ──
+function openDrawer() {
+  document.getElementById('filterDrawer').classList.add('show');
+  document.getElementById('filterOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('filterDrawer').classList.remove('show');
+  document.getElementById('filterOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('filterToggleBtn').onclick = openDrawer;
+document.getElementById('drawerClose').onclick = closeDrawer;
+document.getElementById('filterOverlay').onclick = closeDrawer;
+
+document.getElementById('drawerApply').onclick = function() {
+  applyFilters();
+  closeDrawer();
+};
+document.getElementById('drawerClear').onclick = function() {
+  clearAllFilters();
+  closeDrawer();
+};
+
+// Drawer filter item clicks
+document.querySelectorAll('.drawer-filter-item').forEach(item => {
+  item.addEventListener('click', function() {
+    const type = this.dataset.type;
+    const val = this.dataset.val;
+    // Toggle: uncheck others in same group, check this one
+    document.querySelectorAll(`.drawer-filter-item[data-type="${type}"]`).forEach(i => i.classList.remove('checked'));
+    const wasChecked = activeFilters[type] === val;
+    if (!wasChecked) {
+      this.classList.add('checked');
+      activeFilters[type] = val;
+    } else {
+      activeFilters[type] = '';
+    }
+  });
+});
+
+// ── TOP FILTER CONTROLS ──
+document.getElementById('occasionSelect').addEventListener('change', function() {
+  activeFilters.category = this.value;
+  // sync pill
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.cat === this.value);
+  });
+  applyFilters();
+});
+document.getElementById('deliverySelect').addEventListener('change', function() {
+  activeFilters.delivery = this.value === '0' ? '' : this.value;
+  applyFilters();
+});
+document.getElementById('sortSelect').addEventListener('change', function() {
+  activeFilters.sort = this.value;
+  applyFilters();
+});
+document.getElementById('applyFiltersBtn').onclick = applyFilters;
+
+// Search
+let searchTimeout;
+function handleSearch(val) {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    activeFilters.search = val.trim();
+    applyFilters();
+  }, 300);
+}
+document.getElementById('searchInput').addEventListener('input', function() { handleSearch(this.value); });
+document.getElementById('searchInputMobile').addEventListener('input', function() { handleSearch(this.value); });
+
+// ── CATEGORY PILLS ──
+document.querySelectorAll('.pill').forEach(pill => {
+  pill.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    activeFilters.category = this.dataset.cat;
+    document.getElementById('occasionSelect').value = this.dataset.cat;
+    applyFilters();
+  });
+});
+
+// ── LOAD MORE ──
+document.getElementById('loadMoreBtn').addEventListener('click', function() {
+  visibleCount += 6;
+  renderProducts(filteredProducts);
+});
+
+// ── BACK TO TOP ──
+const btt = document.getElementById('backToTop');
+window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400));
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── STICKY HEADER SHADOW ──
+window.addEventListener('scroll', () => {
+  document.querySelector('header').style.boxShadow =
+    window.scrollY > 10 ? '0 4px 24px rgba(229,60,129,.14)' : '0 2px 20px rgba(229,60,129,.08)';
+});
+
+// ── MOBILE NAV DROPDOWN ──
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function(e) {
+    if (window.innerWidth < 992) {
+      e.preventDefault();
+      this.closest('.nav-dropdown-wrap').classList.toggle('open');
+    }
+  });
+});
+
+// ── INIT: show skeleton briefly then load products ──
+setTimeout(() => {
+  document.getElementById('skeletonGrid').style.display = 'none';
+  applyFilters();
+}, 600);
+</script>
+
+<script>
+// Scroll hint for category pills
+(function() {
+  const row = document.getElementById('pillsScrollRow');
+  const btn = document.getElementById('pillsScrollHint');
+  if (!row || !btn) return;
+  btn.addEventListener('click', function() {
+    row.scrollBy({ left: 160, behavior: 'smooth' });
+  });
+  row.addEventListener('scroll', function() {
+    const atEnd = row.scrollLeft + row.clientWidth >= row.scrollWidth - 12;
+    btn.style.opacity = atEnd ? '0.3' : '1';
+    btn.style.pointerEvents = atEnd ? 'none' : 'all';
+  });
+})();
+</script>
+</body>
+</html>
