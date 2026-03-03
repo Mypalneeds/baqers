@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Baqers Canada — Become a Baker Partner | Toronto & GTA</title>
+<meta name="description" content="Join Baqers Canada as a Baker Partner. Connect with hundreds of customers looking for same-day freshly baked cakes across the GTA. Free to join. Keep more of what you earn."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ── ROOT VARIABLES ── */
+:root {
+  --pink: #e53c81;
+  --pink-hover: #cc2f70;
+  --pink-light: #fce9f1;
+  --pink-mid: #f5c6dc;
+  --dark: #1a1a1a;
+  --charcoal: #3a3a3a;
+  --gray: #707070;
+  --light-gray: #f8f8f8;
+  --warm-white: #fffdf9;
+  --white: #fff;
+  --gold: #c8972a;
+  --gold-light: #fdf5e0;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --shadow-sm: 0 2px 12px rgba(229,60,129,.08);
+  --shadow-md: 0 8px 32px rgba(229,60,129,.12);
+  --shadow-lg: 0 20px 60px rgba(229,60,129,.16);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  color: var(--dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── UTILS ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section-label {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--pink);
+  background: var(--pink-light);
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+.section-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--gray);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid #f0e0ea;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  box-shadow: var(--shadow-sm);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--pink);
+  text-decoration: none;
+  letter-spacing: -.02em;
+}
+.logo span { color: var(--dark); }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink);
+  color: #fff;
+  text-decoration: none;
+  padding: 11px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: .9rem;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgba(229,60,129,.3);
+}
+.nav-cta:hover {
+  background: var(--pink-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(229,60,129,.4);
+  color: #fff;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--warm-white);
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(229,60,129,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(200,151,42,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 60px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink-light);
+  border: 1px solid var(--pink-mid);
+  color: var(--pink);
+  font-size: .82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  animation: fadeSlideDown .6s ease both;
+}
+.hero-badge i { color: var(--pink); }
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--dark);
+  margin-bottom: 20px;
+  animation: fadeSlideDown .6s .1s ease both;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--pink);
+}
+.hero-body {
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 520px;
+  animation: fadeSlideDown .6s .2s ease both;
+}
+.stats-bar {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 36px;
+  animation: fadeSlideDown .6s .3s ease both;
+}
+.stat-item { text-align: left; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--pink);
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-size: .8rem;
+  color: var(--gray);
+  font-weight: 500;
+  margin-top: 4px;
+}
+.stat-divider {
+  width: 1px;
+  background: var(--pink-mid);
+  height: 48px;
+  align-self: center;
+}
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  animation: fadeSlideDown .6s .4s ease both;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all .25s;
+  box-shadow: 0 6px 24px rgba(229,60,129,.35);
+  cursor: pointer;
+  border: none;
+}
+.btn-primary:hover {
+  background: var(--pink-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(229,60,129,.45);
+  color: #fff;
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--dark);
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid var(--pink-mid);
+  transition: all .25s;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  background: var(--pink-light);
+}
+
+/* ── SIGNUP FORM CARD ── */
+.form-card {
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(26,26,26,.12);
+  padding: 40px;
+  border: 1px solid #f0e8f0;
+  animation: fadeSlideLeft .7s .2s ease both;
+  position: sticky;
+  top: 90px;
+}
+.form-badge {
+  background: var(--gold-light);
+  border: 1px solid #f0d88a;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.form-badge .icon { font-size: 1.4rem; flex-shrink: 0; color: var(--gold); }
+.form-badge-text strong {
+  display: block;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+.form-badge-text span {
+  font-size: .8rem;
+  color: var(--gray);
+}
+.form-headline {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.form-sub {
+  font-size: .85rem;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.form-group {
+  margin-bottom: 14px;
+}
+.form-group label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #e8d8e8;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: .9rem;
+  color: var(--dark);
+  background: #fff;
+  transition: border-color .2s, box-shadow .2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+.form-control:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(229,60,129,.1);
+}
+.form-control::placeholder { color: #c0b0c0; }
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--pink);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .25s;
+  box-shadow: 0 6px 24px rgba(229,60,129,.35);
+  margin-top: 8px;
+}
+.form-submit:hover {
+  background: var(--pink-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(229,60,129,.45);
+}
+.form-trust {
+  text-align: center;
+  font-size: .78rem;
+  color: var(--gray);
+  margin-top: 12px;
+}
+
+/* ── FORM VALIDATION ── */
+.req { color: var(--pink); font-weight: 700; }
+.input-wrap {
+  position: relative;
+}
+.input-wrap .valid-icon,
+.input-wrap .error-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .85rem;
+  display: none;
+  pointer-events: none;
+}
+.input-wrap.select-wrap .valid-icon,
+.input-wrap.select-wrap .error-icon {
+  right: 38px;
+}
+.valid-icon { color: #22c55e; }
+.error-icon { color: #ef4444; }
+
+.form-control.is-valid {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+.form-control.is-valid:focus {
+  box-shadow: 0 0 0 3px rgba(34,197,94,.12);
+  border-color: #22c55e;
+}
+.input-wrap.valid .valid-icon { display: block; }
+.input-wrap.valid .error-icon { display: none; }
+
+.form-control.is-invalid {
+  border-color: #ef4444;
+  background: #fff5f5;
+}
+.form-control.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(239,68,68,.12);
+  border-color: #ef4444;
+}
+.input-wrap.invalid .error-icon { display: block; }
+.input-wrap.invalid .valid-icon { display: none; }
+
+.field-error {
+  display: block;
+  font-size: .78rem;
+  color: #ef4444;
+  margin-top: 5px;
+  min-height: 16px;
+  font-weight: 500;
+}
+
+/* select custom arrow */
+.select-wrap .select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+  font-size: .75rem;
+  pointer-events: none;
+}
+.select-wrap select { padding-right: 36px; }
+
+/* submit loading state */
+.form-submit:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ── SUCCESS STATE ── */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+.success-state.active { display: block; }
+.success-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 16px;
+  display: block;
+  animation: pop .5s ease;
+  color: var(--pink);
+}
+.success-state h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.success-state p {
+  font-size: .95rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.form-state { transition: opacity .3s; }
+.form-state.hidden { display: none; }
+
+/* ── BENEFITS ── */
+.benefits {
+  padding: 100px 0;
+  background: var(--white);
+}
+.benefits-header { margin-bottom: 60px; }
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.benefit-card {
+  background: var(--warm-white);
+  border: 1px solid #f0e8f0;
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  position: relative;
+  overflow: hidden;
+}
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--pink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--pink-mid);
+}
+.benefit-card:hover::before { transform: scaleX(1); }
+.benefit-icon {
+  font-size: 1.4rem;
+  color: var(--pink);
+  width: 52px;
+  height: 52px;
+  background: var(--pink-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+.benefit-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.benefit-card p {
+  font-size: .9rem;
+  color: var(--gray);
+  line-height: 1.65;
+}
+
+/* ── HOW IT WORKS ── */
+.how-it-works {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #fff5f9 0%, var(--warm-white) 50%, #fff9f0 100%);
+  position: relative;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 60px;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--pink-mid), var(--pink), var(--pink-mid));
+  z-index: 0;
+}
+.step {
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.step-num {
+  width: 72px;
+  height: 72px;
+  background: var(--white);
+  border: 3px solid var(--pink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pink);
+  margin: 0 auto 24px;
+  box-shadow: 0 4px 20px rgba(229,60,129,.15);
+  background: #fff;
+  transition: background .3s, color .3s;
+}
+.step:hover .step-num {
+  background: var(--pink);
+  color: #fff;
+}
+.step h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.step p {
+  font-size: .88rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* ── STARTER KIT ── */
+.starter-kit {
+  padding: 100px 0;
+  background: var(--white);
+}
+.kit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 60px;
+}
+.kit-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.kit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 24px;
+  border: 1.5px solid #f0e8f0;
+  border-radius: var(--radius-sm);
+  background: var(--warm-white);
+  transition: all .25s;
+}
+.kit-item:hover {
+  border-color: var(--pink-mid);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+.kit-item-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  color: var(--pink);
+  width: 44px;
+  height: 44px;
+  background: var(--pink-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kit-item-body { flex: 1; }
+.kit-item-body strong {
+  display: block;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+.kit-item-body p {
+  font-size: .85rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+.kit-tag {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-light);
+  border: 1px solid #f0d88a;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-top: 8px;
+}
+.kit-visual {
+  background: linear-gradient(135deg, var(--pink-light) 0%, #fff5f0 100%);
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  border: 1px solid var(--pink-mid);
+  box-shadow: var(--shadow-md);
+}
+.kit-visual-emoji {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 20px;
+  color: var(--pink);
+}
+.kit-visual h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.kit-visual-worth {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.kit-visual p {
+  font-size: .9rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #fff5f9 0%, var(--warm-white) 100%);
+}
+.testimonials-header { margin-bottom: 56px; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.testimonial-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #f0e8f0;
+  transition: transform .25s, box-shadow .25s;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--pink-mid);
+  position: absolute;
+  top: 8px;
+  right: 24px;
+  line-height: 1;
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.stars { color: #fbbf24; font-size: .9rem; margin-bottom: 16px; }
+.testimonial-text {
+  font-size: .92rem;
+  color: var(--charcoal);
+  line-height: 1.75;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--pink-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--pink);
+  flex-shrink: 0;
+}
+.author-info strong {
+  display: block;
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.author-info span {
+  font-size: .78rem;
+  color: var(--gray);
+}
+
+/* ── FAQ ── */
+.faq {
+  padding: 100px 0;
+  background: var(--white);
+}
+.faq-content {
+  max-width: 760px;
+  margin: 56px auto 0;
+}
+.faq-item {
+  border-bottom: 1.5px solid #f0e8f0;
+  overflow: hidden;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  cursor: pointer;
+  gap: 16px;
+  transition: color .2s;
+}
+.faq-question:hover { color: var(--pink); }
+.faq-question h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit;
+  transition: color .2s;
+}
+.faq-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--pink-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--pink);
+  font-size: .85rem;
+  transition: background .2s, transform .3s;
+}
+.faq-item.open .faq-toggle {
+  background: var(--pink);
+  color: #fff;
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s ease;
+}
+.faq-answer p {
+  font-size: .92rem;
+  color: var(--gray);
+  line-height: 1.75;
+  padding-bottom: 22px;
+}
+.faq-item.open .faq-answer {
+  max-height: 300px;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--pink) 0%, #c4276c 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.final-cta .deco-icon {
+  position: absolute;
+  color: rgba(255,255,255,.08);
+  pointer-events: none;
+  line-height: 1;
+}
+.final-cta .deco-left {
+  font-size: 14rem;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%) rotate(-15deg);
+}
+.final-cta .deco-right {
+  font-size: 10rem;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%) rotate(10deg);
+}
+.final-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.final-cta p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.85);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: var(--pink);
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: all .25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,.2);
+  cursor: pointer;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+.btn-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.25);
+  color: var(--pink-hover);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,.6);
+  padding: 28px 24px;
+  text-align: center;
+  font-size: .83rem;
+}
+footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+footer a:hover { color: var(--pink); }
+.footer-links { display: flex; gap: 20px; justify-content: center; margin-top: 8px; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes pop {
+  0%   { transform: scale(.5); opacity: 0; }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .form-card { position: static; }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .steps-grid::before { display: none; }
+  .kit-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .hero { padding: 56px 0 40px; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .stats-bar { gap: 20px; }
+  .stat-num { font-size: 1.4rem; }
+  .nav-cta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Baqers<span>.ca</span></a>
+    <a href="#apply" class="nav-cta">Join as a Partner <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <!-- LEFT: Copy -->
+      <div class="hero-left">
+        <div class="hero-badge"><i class="fa-solid fa-cake-candles"></i> Now Recruiting in Toronto &amp; Greater East GTA</div>
+        <h1 class="hero-h1">Turn Your Baking Into a <em>Thriving Business</em></h1>
+        <p class="hero-body">Join Baqers Canada as a Baker Partner and connect with hundreds of customers looking for same-day, freshly baked cakes. You bake. We bring the orders. You keep the profit.</p>
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span class="stat-num">$45+</span>
+            <div class="stat-label">Average order start</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">0%</span>
+            <div class="stat-label">Upfront cost to join</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">Same‑Day</span>
+            <div class="stat-label">Delivery network</div>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#apply" class="btn-primary">Get My Free Baker Kit <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#how-it-works" class="btn-secondary"><i class="fa-regular fa-circle-play"></i> See How It Works</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div id="apply" class="form-card">
+        <div class="form-badge">
+          <span class="icon"><i class="fa-solid fa-gift"></i></span>
+          <div class="form-badge-text">
+            <strong>Free Baker Partner Starter Kit</strong>
+            <span>Pricing guide, order tracker &amp; growth checklist — yours instantly</span>
+          </div>
+        </div>
+
+        <h2 class="form-headline">Apply to Join Baqers Canada</h2>
+        <p class="form-sub">Takes under 60 seconds. No commitment required.</p>
+
+        <!-- FORM STATE -->
+        <div class="form-state" id="formState">
+          <form id="partnerForm" novalidate autocomplete="on">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name <span class="req">*</span></label>
+                <div class="input-wrap">
+                  <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Maria" required autocomplete="given-name" maxlength="50"/>
+                  <i class="fa-solid fa-check valid-icon"></i>
+                  <i class="fa-solid fa-circle-exclamation error-icon"></i>
+                </div>
+                <span class="field-error" id="firstName-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name <span class="req">*</span></label>
+                <div class="input-wrap">
+                  <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Chen" required autocomplete="family-name" maxlength="50"/>
+                  <i class="fa-solid fa-check valid-icon"></i>
+                  <i class="fa-solid fa-circle-exclamation error-icon"></i>
+                </div>
+                <span class="field-error" id="lastName-error"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="email" id="email" name="email" class="form-control" placeholder="you@email.com" required autocomplete="email" maxlength="100"/>
+                <i class="fa-solid fa-check valid-icon"></i>
+                <i class="fa-solid fa-circle-exclamation error-icon"></i>
+              </div>
+              <span class="field-error" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="(416) 555-0000" required autocomplete="tel" maxlength="20"/>
+                <i class="fa-solid fa-check valid-icon"></i>
+                <i class="fa-solid fa-circle-exclamation error-icon"></i>
+              </div>
+              <span class="field-error" id="phone-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="city">Your City / Area <span class="req">*</span></label>
+              <div class="input-wrap select-wrap">
+                <select id="city" name="city" class="form-control" required>
+                  <option value="" disabled selected>Select your area</option>
+                  <option value="toronto-downtown">Toronto (Downtown/Central)</option>
+                  <option value="toronto-east">Toronto (East End)</option>
+                  <option value="scarborough">Scarborough</option>
+                  <option value="markham">Markham</option>
+                  <option value="pickering-ajax">Pickering / Ajax</option>
+                  <option value="whitby-oshawa">Whitby / Oshawa</option>
+                  <option value="other">Other East GTA</option>
+                </select>
+                <i class="fa-solid fa-chevron-down select-arrow"></i>
+                <i class="fa-solid fa-check valid-icon"></i>
+                <i class="fa-solid fa-circle-exclamation error-icon"></i>
+              </div>
+              <span class="field-error" id="city-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="experience">How long have you been baking professionally? <span class="req">*</span></label>
+              <div class="input-wrap select-wrap">
+                <select id="experience" name="experience" class="form-control" required>
+                  <option value="" disabled selected>Select experience</option>
+                  <option value="under-1">Under 1 year</option>
+                  <option value="1-3">1–3 years</option>
+                  <option value="3-5">3–5 years</option>
+                  <option value="5plus">5+ years</option>
+                </select>
+                <i class="fa-solid fa-chevron-down select-arrow"></i>
+                <i class="fa-solid fa-check valid-icon"></i>
+                <i class="fa-solid fa-circle-exclamation error-icon"></i>
+              </div>
+              <span class="field-error" id="experience-error"></span>
+            </div>
+            <button type="submit" class="form-submit" id="submitBtn">
+              <span class="btn-text"><i class="fa-solid fa-gift"></i> Claim My Free Starter Kit</span>
+              <span class="btn-loading" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i> Submitting…</span>
+            </button>
+            <p class="form-trust"><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime. 100% free.</p>
+          </form>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div class="success-state" id="successState">
+          <span class="success-emoji"><i class="fa-solid fa-champagne-glasses"></i></span>
+          <h3>Welcome to the Baqers Family!</h3>
+          <p>Your Baker Partner Starter Kit is on its way to your inbox. A team member will reach out within 24 hours to walk you through the next steps.</p>
+          <a href="#" class="btn-primary" style="justify-content:center;"><i class="fa-solid fa-download"></i> Download Your Kit Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-header">
+      <div class="section-label">Why Partner With Us</div>
+      <h2 class="section-headline">Built for Bakers, Designed for Growth</h2>
+      <p class="section-sub">We handle the platform, the customers, and the logistics so you can focus on what you love — baking.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="benefit-icon"><i class="fa-solid fa-sack-dollar"></i></span>
+        <h3>Keep More of What You Earn</h3>
+        <p>Transparent, fair commission structure. Orders start at $45 and go up with custom cakes. You set your own pricing within the range.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon"><i class="fa-solid fa-box-open"></i></span>
+        <h3>Orders Come to You</h3>
+        <p>No cold calls, no awkward DMs. Baqers Canada funnels verified, paying customers directly to your baker profile.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon"><i class="fa-regular fa-calendar-days"></i></span>
+        <h3>Bake on Your Schedule</h3>
+        <p>Accept orders when you want. Set your available days, capacity, and lead time. You're in full control.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon"><i class="fa-solid fa-bullhorn"></i></span>
+        <h3>Free Marketing &amp; Exposure</h3>
+        <p>Your profile, your story, your cakes — featured on Baqers Canada's platform and social channels to thousands of local buyers.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon"><i class="fa-solid fa-handshake"></i></span>
+        <h3>Community of Bakers</h3>
+        <p>Join a network of passionate Toronto bakers. Share tips, referrals, and seasonal demand insights through our private partner group.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label">The Process</div>
+      <h2 class="section-headline">From Sign Up to First Order in Days</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Apply in 60 Seconds</h3>
+        <p>Fill in the simple form and grab your free Baker Starter Kit immediately.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Quick Onboarding Call</h3>
+        <p>A friendly partner specialist calls to learn about your specialties and set up your baker profile.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Go Live on the Platform</h3>
+        <p>Your profile goes live and orders start flowing in from customers across the GTA.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Bake, Deliver &amp; Get Paid</h3>
+        <p>Fulfill orders on your schedule and receive fast, reliable weekly payouts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARTER KIT -->
+<section class="starter-kit">
+  <div class="container">
+    <div class="section-label">Your Free Starter Kit Includes</div>
+    <h2 class="section-headline">5 Tools to Scale Your Baking Business</h2>
+    <p class="section-sub">Every baker who applies receives this free kit — worth $200+ — instantly.</p>
+    <div class="kit-grid">
+      <div class="kit-items">
+        <div class="kit-item">
+          <span class="kit-item-icon"><i class="fa-solid fa-calculator"></i></span>
+          <div class="kit-item-body">
+            <strong>GTA Cake Pricing Calculator</strong>
+            <p>Know exactly what to charge for any cake size, tier, and complexity. Stop undercharging.</p>
+            <span class="kit-tag">Spreadsheet Tool</span>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon"><i class="fa-solid fa-list-check"></i></span>
+          <div class="kit-item-body">
+            <strong>Order &amp; Production Tracker</strong>
+            <p>A simple template to track every order, deadline, and ingredient list without chaos.</p>
+            <span class="kit-tag">Template</span>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon"><i class="fa-solid fa-chart-line"></i></span>
+          <div class="kit-item-body">
+            <strong>Baker Revenue Growth Roadmap</strong>
+            <p>A step-by-step PDF showing how to grow from part-time baker to full income — with realistic milestones.</p>
+            <span class="kit-tag">PDF Guide</span>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon"><i class="fa-solid fa-camera"></i></span>
+          <div class="kit-item-body">
+            <strong>Social Media Caption Pack</strong>
+            <p>50 ready-to-post captions and hashtags crafted specifically for Toronto-area cake bakers.</p>
+            <span class="kit-tag">Content Pack</span>
+          </div>
+        </div>
+        <div class="kit-item">
+          <span class="kit-item-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+          <div class="kit-item-body">
+            <strong>Ontario Home Baker Legal Cheat Sheet</strong>
+            <p>Know your rights, required permits, and food safety rules for selling baked goods in Ontario — simplified.</p>
+            <span class="kit-tag">Legal Reference</span>
+          </div>
+        </div>
+      </div>
+      <div class="kit-visual">
+        <span class="kit-visual-emoji"><i class="fa-solid fa-gift"></i></span>
+        <h3>Your Free Baker Partner Starter Kit</h3>
+        <div class="kit-visual-worth">Value: $200+</div>
+        <p>Everything you need to launch, price confidently, and grow your baking business across the GTA — delivered to your inbox the moment you apply.</p>
+        <a href="#apply" class="btn-primary" style="justify-content:center;">Get My Free Kit <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-label">Baker Partners</div>
+      <h2 class="section-headline">Real Bakers, Real Results</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I was nervous about joining a platform but within my first week I had 4 orders. The pricing guide from the starter kit alone changed how I price my cakes — I was leaving so much money on the table."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AT</div>
+          <div class="author-info">
+            <strong>Adesola T.</strong>
+            <span>Scarborough, ON · Custom Cakes</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"What I love is the flexibility. I set my days, they send me orders. I've built a real client base through Baqers that now reorders every month. Best decision for my small business."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JM</div>
+          <div class="author-info">
+            <strong>James M.</strong>
+            <span>East York, ON · Celebration Cakes</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I used to rely on Instagram DMs. Now I have a steady stream of same-day orders and the delivery is handled. I just bake. That's a dream come true for a full-time baker like me."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PS</div>
+          <div class="author-info">
+            <strong>Priya S.</strong>
+            <span>Markham, ON · Fondant Specialist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Got Questions?</div>
+    <h2 class="section-headline">Frequently Asked</h2>
+  </div>
+  <div class="container">
+    <div class="faq-content">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h4>Is there a fee to join as a Baker Partner?</h4>
+          <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
+        </div>
+        <div class="faq-answer"><p>Absolutely not. Joining Baqers Canada as a baker partner is completely free. We earn when you earn — our model is commission-based, so there's zero upfront cost or monthly fee.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h4>What areas do you cover?</h4>
+          <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
+        </div>
+        <div class="faq-answer"><p>We're currently active in Toronto and the East GTA region, including Scarborough, Markham, Pickering, Ajax, Whitby, and Oshawa. We're expanding regularly.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h4>Do I need to be a registered business?</h4>
+          <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
+        </div>
+        <div class="faq-answer"><p>Not initially. Many of our partners start as home bakers. Our free legal cheat sheet in the Starter Kit will walk you through Ontario's requirements and help you grow your setup properly.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h4>How does delivery work?</h4>
+          <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
+        </div>
+        <div class="faq-answer"><p>You prepare the order at your location. Baqers Canada coordinates pickup and same-day delivery to the customer through our logistics partners. You don't need to deliver anything yourself.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h4>When and how do I get paid?</h4>
+          <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
+        </div>
+        <div class="faq-answer"><p>Baker partners receive weekly payouts via e-transfer or direct deposit. You'll have a clear dashboard showing all earnings, pending orders, and payment history.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <i class="fa-solid fa-cake-candles deco-icon deco-left"></i>
+  <i class="fa-solid fa-star deco-icon deco-right"></i>
+  <div class="container">
+    <h2>Your Baking Deserves a Bigger Stage</h2>
+    <p>Join dozens of Toronto bakers already earning more with Baqers Canada.<br>It takes 60 seconds to apply — and your Starter Kit is free.</p>
+    <button class="btn-white" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Claim My Free Baker Kit <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Baqers Canada · Toronto, ON</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════
+   FAQ ACCORDION
+══════════════════════════════════════════ */
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* ══════════════════════════════════════════
+   FORM VALIDATION
+══════════════════════════════════════════ */
+const RULES = {
+  firstName: {
+    required: true,
+    minLength: 2,
+    maxLength: 50,
+    pattern: /^[a-zA-ZÀ-ÿ\s'\-]+$/,
+    messages: {
+      required: 'First name is required.',
+      minLength: 'Must be at least 2 characters.',
+      maxLength: 'Cannot exceed 50 characters.',
+      pattern: 'Only letters, spaces, hyphens and apostrophes allowed.'
+    }
+  },
+  lastName: {
+    required: true,
+    minLength: 2,
+    maxLength: 50,
+    pattern: /^[a-zA-ZÀ-ÿ\s'\-]+$/,
+    messages: {
+      required: 'Last name is required.',
+      minLength: 'Must be at least 2 characters.',
+      maxLength: 'Cannot exceed 50 characters.',
+      pattern: 'Only letters, spaces, hyphens and apostrophes allowed.'
+    }
+  },
+  email: {
+    required: true,
+    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+    maxLength: 100,
+    messages: {
+      required: 'Email address is required.',
+      pattern: 'Please enter a valid email address (e.g. you@email.com).',
+      maxLength: 'Email address is too long.'
+    }
+  },
+  phone: {
+    required: true,
+    pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+    messages: {
+      required: 'Phone number is required.',
+      pattern: 'Enter a valid phone number (e.g. (416) 555-0000).'
+    }
+  },
+  city: {
+    required: true,
+    messages: {
+      required: 'Please select your city or area.'
+    }
+  },
+  experience: {
+    required: true,
+    messages: {
+      required: 'Please select your baking experience.'
+    }
+  }
+};
+
+function getWrap(field) {
+  return field.closest('.input-wrap');
+}
+
+function showError(fieldId, message) {
+  const field = document.getElementById(fieldId);
+  const wrap  = getWrap(field);
+  const errEl = document.getElementById(fieldId + '-error');
+  field.classList.remove('is-valid');
+  field.classList.add('is-invalid');
+  wrap.classList.remove('valid');
+  wrap.classList.add('invalid');
+  if (errEl) errEl.textContent = message;
+}
+
+function showValid(fieldId) {
+  const field = document.getElementById(fieldId);
+  const wrap  = getWrap(field);
+  const errEl = document.getElementById(fieldId + '-error');
+  field.classList.remove('is-invalid');
+  field.classList.add('is-valid');
+  wrap.classList.remove('invalid');
+  wrap.classList.add('valid');
+  if (errEl) errEl.textContent = '';
+}
+
+function clearState(fieldId) {
+  const field = document.getElementById(fieldId);
+  const wrap  = getWrap(field);
+  const errEl = document.getElementById(fieldId + '-error');
+  field.classList.remove('is-valid', 'is-invalid');
+  wrap.classList.remove('valid', 'invalid');
+  if (errEl) errEl.textContent = '';
+}
+
+function validateField(fieldId) {
+  const field = document.getElementById(fieldId);
+  const rules = RULES[fieldId];
+  if (!rules) return true;
+
+  const val = field.value.trim();
+
+  if (rules.required && val === '') {
+    showError(fieldId, rules.messages.required);
+    return false;
+  }
+  if (val === '' && !rules.required) {
+    clearState(fieldId);
+    return true;
+  }
+  if (rules.minLength && val.length < rules.minLength) {
+    showError(fieldId, rules.messages.minLength);
+    return false;
+  }
+  if (rules.maxLength && val.length > rules.maxLength) {
+    showError(fieldId, rules.messages.maxLength);
+    return false;
+  }
+  if (rules.pattern && !rules.pattern.test(val)) {
+    showError(fieldId, rules.messages.pattern);
+    return false;
+  }
+
+  showValid(fieldId);
+  return true;
+}
+
+// Auto-format phone number as user types
+document.getElementById('phone').addEventListener('input', function () {
+  let digits = this.value.replace(/\D/g, '').substring(0, 10);
+  if (digits.length >= 7) {
+    this.value = '(' + digits.substring(0,3) + ') ' + digits.substring(3,6) + '-' + digits.substring(6);
+  } else if (digits.length >= 4) {
+    this.value = '(' + digits.substring(0,3) + ') ' + digits.substring(3);
+  } else if (digits.length > 0) {
+    this.value = '(' + digits;
+  }
+});
+
+// Real-time validation on blur for each field
+Object.keys(RULES).forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('blur', () => { if (el.value.trim() !== '') validateField(id); });
+  el.addEventListener('input', () => { if (el.classList.contains('is-invalid')) validateField(id); });
+  el.addEventListener('change', () => { if (el.tagName === 'SELECT') validateField(id); });
+});
+
+/* ── SUBMIT ── */
+document.getElementById('partnerForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Validate all fields
+  const fieldIds = Object.keys(RULES);
+  let firstInvalid = null;
+  let allValid = true;
+
+  fieldIds.forEach(id => {
+    const ok = validateField(id);
+    if (!ok && !firstInvalid) firstInvalid = id;
+    if (!ok) allValid = false;
+  });
+
+  if (!allValid) {
+    // Scroll to and focus first invalid field
+    const el = document.getElementById(firstInvalid);
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => el.focus(), 400);
+    return;
+  }
+
+  // Show loading state
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.querySelector('.btn-text').style.display = 'none';
+  btn.querySelector('.btn-loading').style.display = 'inline-flex';
+
+  // Simulate async submission (replace with real API call)
+  setTimeout(() => {
+    document.getElementById('formState').classList.add('hidden');
+    document.getElementById('successState').classList.add('active');
+  }, 1200);
+});
+</script>
+</body>
+</html>
