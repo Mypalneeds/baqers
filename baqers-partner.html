@@ -974,13 +974,13 @@ footer a:hover { color: var(--pink); }
     <div class="hero-grid">
       <!-- LEFT: Copy -->
       <div class="hero-left">
-        <div class="hero-badge"><i class="fa-solid fa-cake-candles"></i> Now Onboarding · Toronto &amp; East GTA</div>
+        <div class="hero-badge"><i class="fa-solid fa-cake-candles"></i> Now Onboarding · Toronto &amp; GTA</div>
         <h1 class="hero-h1">Get Orders You Didn't Have to <em>Work For.</em></h1>
         <p class="hero-body">Baqers Canada brings cake orders directly to you. No chasing, no cold DMs, no marketing headache. You bake. We handle the rest.</p>
 
         <div class="stats-bar">
           <div class="stat-item">
-            <span class="stat-num">$45+</span>
+            <span class="stat-num">$65+</span>
             <div class="stat-label">Average order start</div>
           </div>
           <div class="stat-divider"></div>
@@ -1017,26 +1017,15 @@ footer a:hover { color: var(--pink); }
         <!-- FORM STATE -->
         <div class="form-state" id="formState">
           <form id="partnerForm" novalidate autocomplete="on">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name <span class="req">*</span></label>
+            <div class="form-group">
+                <label for="fullName">Full Name <span class="req">*</span></label>
                 <div class="input-wrap">
-                  <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Maria" required autocomplete="given-name" maxlength="50"/>
+                  <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Maria Chen" required autocomplete="name" maxlength="100"/>
                   <i class="fa-solid fa-check valid-icon"></i>
                   <i class="fa-solid fa-circle-exclamation error-icon"></i>
                 </div>
-                <span class="field-error" id="firstName-error"></span>
+                <span class="field-error" id="fullName-error"></span>
               </div>
-              <div class="form-group">
-                <label for="lastName">Last Name <span class="req">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Chen" required autocomplete="family-name" maxlength="50"/>
-                  <i class="fa-solid fa-check valid-icon"></i>
-                  <i class="fa-solid fa-circle-exclamation error-icon"></i>
-                </div>
-                <span class="field-error" id="lastName-error"></span>
-              </div>
-            </div>
             <div class="form-group">
               <label for="email">Email Address <span class="req">*</span></label>
               <div class="input-wrap">
@@ -1064,31 +1053,20 @@ footer a:hover { color: var(--pink); }
                   <option value="toronto-east">Toronto (East End)</option>
                   <option value="scarborough">Scarborough</option>
                   <option value="markham">Markham</option>
-                  <option value="pickering-ajax">Pickering / Ajax</option>
-                  <option value="whitby-oshawa">Whitby / Oshawa</option>
-                  <option value="other">Other East GTA</option>
+                  <option value="whitby">Whitby</option>
+                  <option value="etobicoke">Etobicoke</option>
+                  <option value="mississauga">Mississauga</option>
+                  <option value="oakville">Oakville</option>
+                  <option value="brampton">Brampton</option>
+                  <option value="hamilton">Hamilton</option>
+                  <option value="milton">Milton</option>
+                  <option value="other">Other GTA</option>
                 </select>
                 <i class="fa-solid fa-chevron-down select-arrow"></i>
                 <i class="fa-solid fa-check valid-icon"></i>
                 <i class="fa-solid fa-circle-exclamation error-icon"></i>
               </div>
               <span class="field-error" id="city-error"></span>
-            </div>
-            <div class="form-group">
-              <label for="experience">How long have you been baking professionally? <span class="req">*</span></label>
-              <div class="input-wrap select-wrap">
-                <select id="experience" name="experience" class="form-control" required>
-                  <option value="" disabled selected>Select experience</option>
-                  <option value="under-1">Under 1 year</option>
-                  <option value="1-3">1–3 years</option>
-                  <option value="3-5">3–5 years</option>
-                  <option value="5plus">5+ years</option>
-                </select>
-                <i class="fa-solid fa-chevron-down select-arrow"></i>
-                <i class="fa-solid fa-check valid-icon"></i>
-                <i class="fa-solid fa-circle-exclamation error-icon"></i>
-              </div>
-              <span class="field-error" id="experience-error"></span>
             </div>
             <button type="submit" class="form-submit" id="submitBtn">
               <span class="btn-text"><i class="fa-solid fa-gift"></i> Claim My Free Starter Kit</span>
@@ -1119,11 +1097,6 @@ footer a:hover { color: var(--pink); }
       <p class="section-sub">We handle the platform, the customers, and the logistics so you can focus on what you love — baking.</p>
     </div>
     <div class="benefits-grid">
-      <div class="benefit-card">
-        <span class="benefit-icon"><i class="fa-solid fa-sack-dollar"></i></span>
-        <h3>Keep More of What You Earn</h3>
-        <p>Transparent, fair commission structure. Orders start at $45 and go up with custom cakes. You set your own pricing within the range.</p>
-      </div>
       <div class="benefit-card">
         <span class="benefit-icon"><i class="fa-solid fa-box-open"></i></span>
         <h3>Orders Come to You</h3>
@@ -1184,8 +1157,8 @@ footer a:hover { color: var(--pink); }
 <section class="starter-kit">
   <div class="container">
     <div class="section-label">Your Free Starter Kit Includes</div>
-    <h2 class="section-headline">5 Tools to Scale Your Baking Business</h2>
-    <p class="section-sub">Every baker who applies receives this free kit — worth $200+ — instantly.</p>
+    <h2 class="section-headline">2 Tools to Grow Your Baking Business</h2>
+    <p class="section-sub">Every baker who applies receives these free tools — instantly.</p>
     <div class="kit-grid">
       <div class="kit-items">
         <div class="kit-item">
@@ -1197,22 +1170,6 @@ footer a:hover { color: var(--pink); }
           </div>
         </div>
         <div class="kit-item">
-          <span class="kit-item-icon"><i class="fa-solid fa-list-check"></i></span>
-          <div class="kit-item-body">
-            <strong>Order &amp; Production Tracker</strong>
-            <p>A simple template to track every order, deadline, and ingredient list without chaos.</p>
-            <span class="kit-tag">Template</span>
-          </div>
-        </div>
-        <div class="kit-item">
-          <span class="kit-item-icon"><i class="fa-solid fa-chart-line"></i></span>
-          <div class="kit-item-body">
-            <strong>Baker Revenue Growth Roadmap</strong>
-            <p>A step-by-step PDF showing how to grow from part-time baker to full income — with realistic milestones.</p>
-            <span class="kit-tag">PDF Guide</span>
-          </div>
-        </div>
-        <div class="kit-item">
           <span class="kit-item-icon"><i class="fa-solid fa-camera"></i></span>
           <div class="kit-item-body">
             <strong>Social Media Caption Pack</strong>
@@ -1220,66 +1177,13 @@ footer a:hover { color: var(--pink); }
             <span class="kit-tag">Content Pack</span>
           </div>
         </div>
-        <div class="kit-item">
-          <span class="kit-item-icon"><i class="fa-solid fa-scale-balanced"></i></span>
-          <div class="kit-item-body">
-            <strong>Ontario Home Baker Legal Cheat Sheet</strong>
-            <p>Know your rights, required permits, and food safety rules for selling baked goods in Ontario — simplified.</p>
-            <span class="kit-tag">Legal Reference</span>
-          </div>
-        </div>
       </div>
       <div class="kit-visual">
         <span class="kit-visual-emoji"><i class="fa-solid fa-gift"></i></span>
         <h3>Your Free Baker Partner Starter Kit</h3>
-        <div class="kit-visual-worth">Value: $200+</div>
-        <p>Everything you need to launch, price confidently, and grow your baking business across the GTA — delivered to your inbox the moment you apply.</p>
+        <div class="kit-visual-worth">Value: $100+</div>
+        <p>GTA pricing sheet calculator &amp; 50 fantastic social media captions delivered to your inbox the moment you apply.</p>
         <a href="#apply" class="btn-primary" style="justify-content:center;">Get My Free Kit <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="container">
-    <div class="testimonials-header">
-      <div class="section-label">Baker Partners</div>
-      <h2 class="section-headline">Real Bakers, Real Results</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I was nervous about joining a platform but within my first week I had 4 orders. The pricing guide from the starter kit alone changed how I price my cakes — I was leaving so much money on the table."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">AT</div>
-          <div class="author-info">
-            <strong>Adesola T.</strong>
-            <span>Scarborough, ON · Custom Cakes</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"What I love is the flexibility. I set my days, they send me orders. I've built a real client base through Baqers that now reorders every month. Best decision for my small business."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">JM</div>
-          <div class="author-info">
-            <strong>James M.</strong>
-            <span>East York, ON · Celebration Cakes</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I used to rely on Instagram DMs. Now I have a steady stream of orders and the delivery is handled. I just bake. That's a dream come true for a full-time baker like me."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">PS</div>
-          <div class="author-info">
-            <strong>Priya S.</strong>
-            <span>Markham, ON · Fondant Specialist</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -1305,7 +1209,7 @@ footer a:hover { color: var(--pink); }
           <h4>What areas do you cover?</h4>
           <span class="faq-toggle"><i class="fa-solid fa-plus"></i></span>
         </div>
-        <div class="faq-answer"><p>We're currently active in Toronto and the East GTA region, including Scarborough, Markham, Pickering, Ajax, Whitby, and Oshawa. We're expanding regularly.</p></div>
+        <div class="faq-answer"><p>We're currently active in Toronto and the GTA region, including Scarborough, Markham, Whitby, Mississauga, Oakville, Etobicoke, Brampton, Hamilton, and Milton. We're expanding regularly.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-question">
@@ -1370,27 +1274,15 @@ document.querySelectorAll('.faq-question').forEach(q => {
    FORM VALIDATION
 ══════════════════════════════════════════ */
 const RULES = {
-  firstName: {
+  fullName: {
     required: true,
     minLength: 2,
-    maxLength: 50,
+    maxLength: 100,
     pattern: /^[a-zA-ZÀ-ÿ\s'\-]+$/,
     messages: {
-      required: 'First name is required.',
+      required: 'Full name is required.',
       minLength: 'Must be at least 2 characters.',
-      maxLength: 'Cannot exceed 50 characters.',
-      pattern: 'Only letters, spaces, hyphens and apostrophes allowed.'
-    }
-  },
-  lastName: {
-    required: true,
-    minLength: 2,
-    maxLength: 50,
-    pattern: /^[a-zA-ZÀ-ÿ\s'\-]+$/,
-    messages: {
-      required: 'Last name is required.',
-      minLength: 'Must be at least 2 characters.',
-      maxLength: 'Cannot exceed 50 characters.',
+      maxLength: 'Cannot exceed 100 characters.',
       pattern: 'Only letters, spaces, hyphens and apostrophes allowed.'
     }
   },
