@@ -95,26 +95,10 @@ nav { background: var(--white); border-bottom: 1px solid #f0e0ea; position: stic
 .select-wrap .select-arrow { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--gray); font-size: .75rem; pointer-events: none; }
 .select-wrap select { padding-right: 36px; }
 .form-submit:disabled { opacity: .7; cursor: not-allowed; transform: none !important; }
-
-/* ── INSTAGRAM FIELD ── */
 .insta-wrap { position: relative; }
-.insta-prefix {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--pink);
-  font-size: .92rem;
-  font-weight: 700;
-  pointer-events: none;
-  z-index: 1;
-  line-height: 1;
-  opacity: .75;
-}
+.insta-prefix { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--pink); font-size: .92rem; font-weight: 700; pointer-events: none; z-index: 1; line-height: 1; opacity: .75; }
 .insta-wrap .form-control { padding-left: 28px; }
-.insta-wrap .valid-icon,
-.insta-wrap .error-icon { right: 14px; }
-
+.insta-wrap .valid-icon, .insta-wrap .error-icon { right: 14px; }
 .success-state { display: none; text-align: center; padding: 20px 0; }
 .success-state.active { display: block; }
 .success-emoji { font-size: 3.5rem; margin-bottom: 16px; display: block; animation: pop .5s ease; color: var(--pink); }
@@ -182,7 +166,7 @@ footer a:hover { color: var(--pink); }
 @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeSlideLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes pop { 0% { transform: scale(.5); opacity: 0; } 70% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
-@media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } .form-card { position: static; } .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } .steps-grid::before { display: none; } .kit-grid { grid-template-columns: 1fr; } .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } .form-card { position: static; } .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } .steps-grid::before { display: none; } .kit-grid { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .hero { padding: 56px 0 40px; } .benefits-grid { grid-template-columns: 1fr; } .steps-grid { grid-template-columns: 1fr; } .stats-bar { gap: 20px; } .stat-num { font-size: 1.4rem; } .nav-cta { display: none; } }
 </style>
 </head>
@@ -191,11 +175,12 @@ footer a:hover { color: var(--pink); }
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">Baqers<span>.ca</span></a>
-    <a href="#apply" class="nav-cta">Reserve My Spot <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="#" class="nav-cta" onclick="scrollToForm(event)">Reserve My Spot <i class="fa-solid fa-arrow-right"></i></a>
   </div>
 </nav>
 
-<section class="hero">
+<!-- Hero section anchor kept here for nav/hash purposes -->
+<section class="hero" id="apply">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-left">
@@ -219,12 +204,13 @@ footer a:hover { color: var(--pink); }
           </div>
         </div>
         <div class="hero-btns">
-          <a href="#apply" class="btn-primary">Reserve My Spot <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#" class="btn-primary" onclick="scrollToForm(event)">Reserve My Spot <i class="fa-solid fa-arrow-right"></i></a>
           <a href="#benefits" class="btn-secondary"><i class="fa-solid fa-arrow-down"></i> See What's Included</a>
         </div>
       </div>
 
-      <div id="apply" class="form-card">
+      <!-- id="apply-form" is now on the card itself, separate from the section anchor -->
+      <div id="apply-form" class="form-card">
         <div class="form-badge">
           <span class="icon"><i class="fa-solid fa-gift"></i></span>
           <div class="form-badge-text">
@@ -237,7 +223,6 @@ footer a:hover { color: var(--pink); }
 
         <div class="form-state" id="formState">
           <form id="partnerForm" novalidate autocomplete="on">
-
             <div class="form-group">
               <label for="fullName">Full Name <span class="req">*</span></label>
               <div class="input-wrap">
@@ -247,7 +232,6 @@ footer a:hover { color: var(--pink); }
               </div>
               <span class="field-error" id="fullName-error"></span>
             </div>
-
             <div class="form-group">
               <label for="email">Email Address <span class="req">*</span></label>
               <div class="input-wrap">
@@ -257,7 +241,6 @@ footer a:hover { color: var(--pink); }
               </div>
               <span class="field-error" id="email-error"></span>
             </div>
-
             <div class="form-group">
               <label for="phone">Phone Number <span class="req">*</span></label>
               <div class="input-wrap">
@@ -267,8 +250,6 @@ footer a:hover { color: var(--pink); }
               </div>
               <span class="field-error" id="phone-error"></span>
             </div>
-
-            <!-- INSTAGRAM HANDLE FIELD -->
             <div class="form-group">
               <label for="instagram">
                 <i class="fa-brands fa-instagram" style="color:var(--pink);margin-right:5px;"></i>
@@ -277,24 +258,12 @@ footer a:hover { color: var(--pink); }
               </label>
               <div class="input-wrap insta-wrap">
                 <span class="insta-prefix">@</span>
-                <input
-                  type="text"
-                  id="instagram"
-                  name="instagram"
-                  class="form-control"
-                  placeholder="yourbakery"
-                  autocomplete="off"
-                  maxlength="30"
-                  spellcheck="false"
-                  autocorrect="off"
-                  autocapitalize="none"
-                />
+                <input type="text" id="instagram" name="instagram" class="form-control" placeholder="yourbakery" autocomplete="off" maxlength="30" spellcheck="false" autocorrect="off" autocapitalize="none"/>
                 <i class="fa-solid fa-check valid-icon"></i>
                 <i class="fa-solid fa-circle-exclamation error-icon"></i>
               </div>
               <span class="field-error" id="instagram-error"></span>
             </div>
-
             <div class="form-group">
               <label for="city">Your City / Area <span class="req">*</span></label>
               <div class="input-wrap select-wrap">
@@ -319,7 +288,6 @@ footer a:hover { color: var(--pink); }
               </div>
               <span class="field-error" id="city-error"></span>
             </div>
-
             <button type="submit" class="form-submit" id="submitBtn">
               <span class="btn-text"><i class="fa-solid fa-gift"></i> Claim My Free Starter Kit</span>
               <span class="btn-loading" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i> Submitting&hellip;</span>
@@ -373,26 +341,10 @@ footer a:hover { color: var(--pink); }
       <h2 class="section-headline">From Sign Up to First Order in Days</h2>
     </div>
     <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Apply in 60 Seconds</h3>
-        <p>Fill in the simple form and grab your free Baker Starter Kit immediately.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Quick Onboarding Call</h3>
-        <p>A friendly partner specialist calls to learn about your specialties and set up your baker profile.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Go Live on the Platform</h3>
-        <p>Your profile goes live and orders start flowing in from customers across the GTA.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Bake, Deliver &amp; Get Paid</h3>
-        <p>Fulfill orders on your schedule and receive fast, reliable weekly payouts.</p>
-      </div>
+      <div class="step"><div class="step-num">1</div><h3>Apply in 60 Seconds</h3><p>Fill in the simple form and grab your free Baker Starter Kit immediately.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Quick Onboarding Call</h3><p>A friendly partner specialist calls to learn about your specialties and set up your baker profile.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Go Live on the Platform</h3><p>Your profile goes live and orders start flowing in from customers across the GTA.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Bake, Deliver &amp; Get Paid</h3><p>Fulfill orders on your schedule and receive fast, reliable weekly payouts.</p></div>
     </div>
   </div>
 </section>
@@ -426,7 +378,8 @@ footer a:hover { color: var(--pink); }
         <h3>Your Free Baker Partner Starter Kit</h3>
         <div class="kit-visual-worth">Value: $100+</div>
         <p>GTA pricing sheet calculator &amp; 50 fantastic social media captions delivered to your inbox the moment you apply.</p>
-        <a href="#apply" class="btn-primary" style="justify-content:center;">Get My Free Kit <i class="fa-solid fa-arrow-right"></i></a>
+        <!-- FIXED: was href="#apply" which scrolled to hero — now uses scrollToForm() -->
+        <a href="#" class="btn-primary" style="justify-content:center;" onclick="scrollToForm(event)">Get My Free Kit <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -470,7 +423,7 @@ footer a:hover { color: var(--pink); }
     <div class="section-label" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);">Limited First-Wave Spots</div>
     <h2>Ready to Bake More and Get Orders Effortlessly?</h2>
     <p>Join the info session and see exactly how Baqers Canada works for you.<br>Free to attend, free to join for now.</p>
-    <button class="btn-white" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Reserve My Spot <i class="fa-solid fa-arrow-right"></i></button>
+    <button class="btn-white" onclick="scrollToForm(event)">Reserve My Spot <i class="fa-solid fa-arrow-right"></i></button>
   </div>
 </section>
 
@@ -480,10 +433,30 @@ footer a:hover { color: var(--pink); }
 </footer>
 
 <script>
+/**
+ * Scrolls precisely to the form card, accounting for the sticky nav height.
+ * All CTA buttons use this instead of a bare href="#apply".
+ */
+function scrollToForm(e) {
+  if (e) e.preventDefault();
+  const formCard = document.getElementById('apply-form');
+  const nav      = document.querySelector('nav');
+  if (!formCard) return;
+  const navH   = nav ? nav.offsetHeight : 0;
+  const gap    = 16; // breathing room below nav
+  const top    = formCard.getBoundingClientRect().top + window.pageYOffset - navH - gap;
+  window.scrollTo({ top, behavior: 'smooth' });
+  // Focus first visible input after scroll settles
+  setTimeout(() => {
+    const first = formCard.querySelector('input:not([type=hidden])');
+    if (first) first.focus({ preventScroll: true });
+  }, 600);
+}
+
 /* FAQ accordion */
 document.querySelectorAll('.faq-question').forEach(q => {
   q.addEventListener('click', () => {
-    const item = q.closest('.faq-item');
+    const item   = q.closest('.faq-item');
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
@@ -492,56 +465,24 @@ document.querySelectorAll('.faq-question').forEach(q => {
 
 /* Validation rules */
 const RULES = {
-  fullName: {
-    required: true, minLength: 2, maxLength: 100,
-    pattern: /^[a-zA-Z\u00C0-\u00FF\s'\-]+$/,
-    messages: {
-      required: 'Full name is required.',
-      minLength: 'Must be at least 2 characters.',
-      maxLength: 'Cannot exceed 100 characters.',
-      pattern: 'Only letters, spaces, hyphens and apostrophes allowed.'
-    }
-  },
-  email: {
-    required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, maxLength: 100,
-    messages: {
-      required: 'Email address is required.',
-      pattern: 'Please enter a valid email address (e.g. you@email.com).',
-      maxLength: 'Email address is too long.'
-    }
-  },
-  phone: {
-    required: true, pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
-    messages: {
-      required: 'Phone number is required.',
-      pattern: 'Enter a valid phone number (e.g. (416) 555-0000).'
-    }
-  },
-  instagram: {
-    required: false,
-    pattern: /^[a-zA-Z0-9._]{1,30}$/,
-    messages: {
-      pattern: 'Use only letters, numbers, periods and underscores (max 30 chars).'
-    }
-  },
-  city: {
-    required: true,
-    messages: { required: 'Please select your city or area.' }
-  }
+  fullName:  { required: true,  minLength: 2, maxLength: 100, pattern: /^[a-zA-Z\u00C0-\u00FF\s'\-]+$/, messages: { required: 'Full name is required.', minLength: 'Must be at least 2 characters.', maxLength: 'Cannot exceed 100 characters.', pattern: 'Only letters, spaces, hyphens and apostrophes allowed.' } },
+  email:     { required: true,  pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, maxLength: 100, messages: { required: 'Email address is required.', pattern: 'Please enter a valid email address (e.g. you@email.com).', maxLength: 'Email address is too long.' } },
+  phone:     { required: true,  pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, messages: { required: 'Phone number is required.', pattern: 'Enter a valid phone number (e.g. (416) 555-0000).' } },
+  instagram: { required: false, pattern: /^[a-zA-Z0-9._]{1,30}$/, messages: { pattern: 'Use only letters, numbers, periods and underscores (max 30 chars).' } },
+  city:      { required: true,  messages: { required: 'Please select your city or area.' } }
 };
 
 function getWrap(field) { return field.closest('.input-wrap'); }
-
 function showError(id, msg) {
   const f = document.getElementById(id), w = getWrap(f), e = document.getElementById(id+'-error');
   f.classList.remove('is-valid'); f.classList.add('is-invalid');
-  w.classList.remove('valid'); w.classList.add('invalid');
+  w.classList.remove('valid');   w.classList.add('invalid');
   if (e) e.textContent = msg;
 }
 function showValid(id) {
   const f = document.getElementById(id), w = getWrap(f), e = document.getElementById(id+'-error');
   f.classList.remove('is-invalid'); f.classList.add('is-valid');
-  w.classList.remove('invalid'); w.classList.add('valid');
+  w.classList.remove('invalid');   w.classList.add('valid');
   if (e) e.textContent = '';
 }
 function clearState(id) {
@@ -550,19 +491,17 @@ function clearState(id) {
   w.classList.remove('valid','invalid');
   if (e) e.textContent = '';
 }
-
 function validateField(id) {
   const field = document.getElementById(id);
   const rules = RULES[id];
   if (!rules) return true;
   let val = field.value.trim();
   if (id === 'instagram') val = val.replace(/^@+/, '');
-
-  if (rules.required && val === '') { showError(id, rules.messages.required); return false; }
-  if (!rules.required && val === '') { clearState(id); return true; }
+  if (rules.required && val === '')              { showError(id, rules.messages.required);   return false; }
+  if (!rules.required && val === '')             { clearState(id);                            return true;  }
   if (rules.minLength && val.length < rules.minLength) { showError(id, rules.messages.minLength); return false; }
   if (rules.maxLength && val.length > rules.maxLength) { showError(id, rules.messages.maxLength); return false; }
-  if (rules.pattern && !rules.pattern.test(val)) { showError(id, rules.messages.pattern); return false; }
+  if (rules.pattern   && !rules.pattern.test(val))     { showError(id, rules.messages.pattern);   return false; }
   showValid(id);
   return true;
 }
@@ -570,9 +509,9 @@ function validateField(id) {
 /* Phone auto-format */
 document.getElementById('phone').addEventListener('input', function () {
   let d = this.value.replace(/\D/g,'').substring(0,10);
-  if (d.length >= 7) this.value = '('+d.substring(0,3)+') '+d.substring(3,6)+'-'+d.substring(6);
+  if (d.length >= 7)      this.value = '('+d.substring(0,3)+') '+d.substring(3,6)+'-'+d.substring(6);
   else if (d.length >= 4) this.value = '('+d.substring(0,3)+') '+d.substring(3);
-  else if (d.length > 0) this.value = '('+d;
+  else if (d.length > 0)  this.value = '('+d;
 });
 
 /* Instagram: auto-strip leading @ */
@@ -584,8 +523,8 @@ document.getElementById('instagram').addEventListener('input', function () {
 Object.keys(RULES).forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
-  el.addEventListener('blur', () => { if (el.value.trim() !== '') validateField(id); });
-  el.addEventListener('input', () => { if (el.classList.contains('is-invalid')) validateField(id); });
+  el.addEventListener('blur',   () => { if (el.value.trim() !== '') validateField(id); });
+  el.addEventListener('input',  () => { if (el.classList.contains('is-invalid')) validateField(id); });
   el.addEventListener('change', () => { if (el.tagName === 'SELECT') validateField(id); });
 });
 
@@ -606,7 +545,7 @@ document.getElementById('partnerForm').addEventListener('submit', function (e) {
   }
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  btn.querySelector('.btn-text').style.display = 'none';
+  btn.querySelector('.btn-text').style.display   = 'none';
   btn.querySelector('.btn-loading').style.display = 'inline-flex';
   setTimeout(() => {
     document.getElementById('formState').classList.add('hidden');
